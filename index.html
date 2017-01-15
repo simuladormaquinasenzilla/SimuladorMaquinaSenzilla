@@ -1,0 +1,1333 @@
+<!--This file is part of Simulador de la Maquina Senzilla.
+
+Simulador de la Màquina Senzilla is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Simulador de la Màquina Senzilla is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Simulador de la Màquina Senzilla.  If not, see <http://www.gnu.org/licenses/>.-->
+
+
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Aplicació de la màquina senzilla per a la universitat de girona">
+    <meta name="author" content="Bryan Pierre">
+
+    <title>Simulador Màquina Senzilla</title>
+
+    <!-- Bootstrap Core CSS -->
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+
+	<!-- Font Awesome CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Simulador Màquina Senzilla (alfa v1.0.5)</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Simulador</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Manual</a>
+                    </li>
+                    <li>
+						<a class="page-scroll" href="#about">Contacte</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div>
+            <div class="intro-text">
+                 <!--<div class="intro-lead-in">Benvinguts al simulador de la màquina senzilla!</div>
+                 <div class="intro-heading"></div>-->
+            </div>
+        </div>
+    </header>
+
+    <!-- Simulador Section -->
+    <section id="services">
+        <div class="container">
+            <div>
+                <div class="col-md-8">
+                    <div id="maquina-senzilla">
+						<table id="llegenda" align="center">
+							<tr>
+								<td>
+									<div>
+										<label>
+										<button id="senyal1-color"
+												class="jscolor {valueElement:null,value:'#90EE90'}"
+												style="width:20px; height:20px;">
+										</button>
+										</label>
+									</div>
+								</td>
+								<td>Codi senyal "1"</td>
+								<td>
+									<div>
+										<label>
+										<button id="senyal0-color"
+												class="jscolor {valueElement:null,value:'#FF6347'}"
+												style="width:20px; height:20px;">
+										</button>
+										</label>
+									</div>
+								</td>
+								<td>Codi senyal "0"</td>
+								<td>
+									<div>
+										<label>
+										<button id="bus-color"
+												class="jscolor {valueElement:null,value:'#00BFFF'}"
+												style="width:20px; height:20px;">
+										</button>
+											</label>
+									</div>
+								</td>
+								<td>Bus de dades</td>
+								<td>
+									<div class="checkbox">
+										<label>
+											<input id="assemblador" type="checkbox" value="">
+											<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+										</label>
+									</div>
+								</td>
+								<td>Assemblador</td>
+
+							</tr>
+						</table>
+						<div>
+						<?xml version="1.0" encoding="utf-8"?>
+						<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+						<?xml version="1.0" encoding="utf-8"?>
+						<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+						<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 678.7 574.5" style="enable-background:new 0 0 678.7 574.5;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C4E6F5;stroke:#000000;stroke-miterlimit:10;}
+	.st1{fill:#B2B2B2;stroke:#000000;stroke-miterlimit:10;}
+	.st2{fill:#F8F2AC;stroke:#000000;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st4{fill:none;}
+	.st5{font-family:'MyriadPro-Regular';}
+	.st6{font-size:12px;}
+	.st7{font-size:18px;}
+	.st8{font-size:8px;}
+	.st9{font-family:'SymbolMT';}
+	.st10{font-size:14px;}
+	.st11{font-size:24px;}
+	.st12{fill:#DADADA;stroke:#000000;stroke-miterlimit:10;}
+	.st13{font-family:'Consolas';}
+</style>
+<rect id="XMLID_1_" x="146.5" y="44.6" class="st0" width="30" height="109"/>
+<rect id="XMLID_2_" x="262.5" y="106.6" class="st0" width="100" height="162"/>
+<rect id="XMLID_3_" x="499.5" y="54.6" class="st1" width="147" height="265"/>
+<rect id="XMLID_5_" x="234.5" y="386.6" class="st0" width="147" height="30"/>
+<rect id="XMLID_4_" x="410.5" y="387.6" class="st0" width="146" height="30"/>
+<rect id="XMLID_8_" x="262.5" y="44.6" class="st0" width="25" height="25"/>
+<rect id="XMLID_7_" x="148.5" y="459.6" class="st0" width="25" height="25"/>
+<polygon id="XMLID_9_" class="st2" points="430.5,539.6 348,539.6 265.5,467.6 348,467.6 370.7,487.5 407.5,487.4 430.5,467.6
+	512.9,467.6 "/>
+<g id="XMLID_10_">
+	<g id="XMLID_189_">
+		<line id="XMLID_192_" class="st3" x1="183" y1="57.6" x2="263" y2="57.6"/>
+		<g id="XMLID_190_">
+			<polygon id="XMLID_191_" points="185.4,61.1 183.8,57.4 185.4,53.7 176.6,57.4 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_11_">
+	<g id="XMLID_423_">
+		<line id="XMLID_426_" class="st3" x1="493" y1="187.6" x2="363" y2="187.6"/>
+		<g id="XMLID_424_">
+			<polygon id="XMLID_425_" points="490.4,183.5 491.9,187.2 490.4,190.9 499.1,187.2 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_12_">
+	<g id="XMLID_418_">
+		<line id="XMLID_422_" class="st3" x1="294" y1="57.6" x2="431" y2="57.6"/>
+		<g id="XMLID_419_">
+			<polygon id="XMLID_421_" points="296.6,61.1 295,57.4 296.6,53.7 287.8,57.4 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_13_" class="st3" x1="430.5" y1="57.1" x2="430.5" y2="187.1"/>
+<line id="XMLID_14_" class="st3" x1="136" y1="99.6" x2="146" y2="99.6"/>
+<line id="XMLID_15_" class="st3" x1="136.5" y1="166.1" x2="136.5" y2="99.1"/>
+<line id="XMLID_16_" class="st3" x1="200" y1="166.6" x2="136" y2="166.6"/>
+<line id="XMLID_17_" class="st3" x1="199.5" y1="122.1" x2="199.5" y2="166.1"/>
+<g id="XMLID_18_">
+	<g id="XMLID_161_">
+		<line id="XMLID_306_" class="st3" x1="257" y1="122.6" x2="200" y2="122.6"/>
+		<g id="XMLID_162_">
+			<polygon id="XMLID_305_" points="254,118.5 255.6,122.2 254,125.9 262.8,122.2 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_20_" class="st3" x1="130.5" y1="202.1" x2="130.5" y2="305.1"/>
+<line id="XMLID_21_" class="st3" x1="130" y1="305.6" x2="146" y2="305.6"/>
+<line id="XMLID_22_" class="st3" x1="138" y1="267.6" x2="146" y2="267.6"/>
+<g id="XMLID_24_">
+	<g id="XMLID_151_">
+		<line id="XMLID_154_" class="st3" x1="256" y1="243.6" x2="138" y2="243.6"/>
+		<g id="XMLID_152_">
+			<polygon id="XMLID_153_" points="253.2,239.9 254.8,243.6 253.2,247.3 262,243.6 			"/>
+		</g>
+	</g>
+</g>
+<rect id="XMLID_27_" x="268.3" y="123" class="st4" width="14" height="16.5"/>
+<text id="XMLID_28_" transform="matrix(1 0 0 1 268.2792 131.4811)" class="st5 st6">0</text>
+<rect id="XMLID_30_" x="267.9" y="157.5" class="st4" width="14" height="16.5"/>
+<text id="XMLID_29_" transform="matrix(1 0 0 1 267.8831 165.9713)" class="st5 st6">1</text>
+<rect id="XMLID_32_" x="267.9" y="194.3" class="st4" width="14" height="16.5"/>
+<text id="XMLID_31_" transform="matrix(1 0 0 1 267.8831 202.77)" class="st5 st6">2</text>
+<rect id="XMLID_34_" x="267.9" y="235" class="st4" width="14" height="16.5"/>
+<text id="XMLID_33_" transform="matrix(1 0 0 1 267.8831 243.52)" class="st5 st6">3</text>
+<g id="XMLID_35_">
+	<g id="XMLID_156_">
+		<line id="XMLID_159_" class="st3" x1="256" y1="202.6" x2="130" y2="202.6"/>
+		<g id="XMLID_157_">
+			<polygon id="XMLID_158_" points="253.2,198.9 254.8,202.6 253.2,206.3 262,202.6 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_19_" class="st3" x1="138.5" y1="243.1" x2="138.5" y2="268.1"/>
+<rect id="XMLID_23_" x="146.5" y="255.6" class="st0" width="30" height="41"/>
+<rect id="XMLID_25_" x="146.5" y="296.6" class="st0" width="30" height="41"/>
+<rect id="XMLID_26_" x="146.5" y="337.6" class="st0" width="30" height="27"/>
+<line id="XMLID_6_" class="st3" x1="546.5" y1="330.1" x2="546.5" y2="319.1"/>
+<g id="XMLID_36_">
+	<g id="XMLID_308_">
+		<line id="XMLID_343_" class="st3" x1="183" y1="329.6" x2="299" y2="329.6"/>
+		<g id="XMLID_309_">
+			<polygon id="XMLID_342_" points="185.8,333.3 184.2,329.6 185.8,325.9 177,329.6 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_37_">
+	<g id="XMLID_119_">
+		<line id="XMLID_122_" class="st3" x1="298.5" y1="381.1" x2="298.5" y2="330.1"/>
+		<g id="XMLID_120_">
+			<polygon id="XMLID_121_" points="302.2,378.4 298.5,379.9 294.8,378.4 298.5,387.1 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_38_">
+	<g id="XMLID_116_">
+		<line id="XMLID_149_" class="st3" x1="474.5" y1="381.1" x2="474.5" y2="330.1"/>
+		<g id="XMLID_117_">
+			<polygon id="XMLID_148_" points="477.8,378.3 474.1,379.8 470.4,378.3 474.1,387 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_39_">
+	<g id="XMLID_109_">
+		<line id="XMLID_112_" class="st3" x1="298.5" y1="461.1" x2="298.5" y2="416.1"/>
+		<g id="XMLID_110_">
+			<polygon id="XMLID_111_" points="302.2,458.4 298.5,459.9 294.8,458.4 298.5,467.1 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_40_">
+	<g id="XMLID_106_">
+		<line id="XMLID_114_" class="st3" x1="474.5" y1="461.1" x2="474.5" y2="416.1"/>
+		<g id="XMLID_107_">
+			<polygon id="XMLID_113_" points="478.2,458.4 474.5,459.9 470.8,458.4 474.5,467.1 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_42_" class="st3" x1="389.5" y1="545.1" x2="389.5" y2="540.1"/>
+<line id="XMLID_43_" class="st3" x1="612" y1="544.6" x2="389" y2="544.6"/>
+<g id="XMLID_44_">
+	<g id="XMLID_135_">
+		<line id="XMLID_143_" class="st3" x1="612.5" y1="325.1" x2="612.5" y2="545.1"/>
+		<g id="XMLID_136_">
+			<polygon id="XMLID_137_" points="608.8,327.9 612.5,326.3 616.2,327.9 612.5,319.1 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_45_">
+	<g id="XMLID_183_">
+		<line id="XMLID_186_" class="st3" x1="111" y1="471.6" x2="149" y2="471.6"/>
+		<g id="XMLID_184_">
+			<polygon id="XMLID_185_" points="114.1,475.2 112.5,471.5 114.1,467.8 105.3,471.5 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_46_">
+	<g id="XMLID_220_">
+		<line id="XMLID_265_" class="st3" x1="342" y1="538.6" x2="105" y2="538.6"/>
+		<g id="XMLID_224_">
+			<polygon id="XMLID_225_" points="339.2,534.9 340.8,538.6 339.2,542.3 348,538.6 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_47_">
+	<g id="XMLID_251_">
+		<line id="XMLID_259_" class="st3" x1="111" y1="343.6" x2="146" y2="343.6"/>
+		<g id="XMLID_252_">
+			<polygon id="XMLID_258_" points="113.8,347.3 112.2,343.6 113.8,339.9 105,343.6 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_48_" class="st3" x1="161" y1="379.6" x2="105" y2="379.6"/>
+<g id="XMLID_49_">
+	<g id="XMLID_248_">
+		<line id="XMLID_261_" class="st3" x1="161.5" y1="370.1" x2="161.5" y2="380.1"/>
+		<g id="XMLID_249_">
+			<polygon id="XMLID_250_" points="157.6,373 161.3,371.5 165,373 161.3,364.3 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_50_" class="st3" x1="576" y1="35.6" x2="105" y2="35.6"/>
+<g id="XMLID_51_">
+	<g id="XMLID_357_">
+		<line id="XMLID_360_" class="st3" x1="575.5" y1="49.1" x2="575.5" y2="35.1"/>
+		<g id="XMLID_358_">
+			<polygon id="XMLID_359_" points="579.2,46.4 575.5,47.9 571.8,46.4 575.5,55.1 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_52_" class="st3" x1="161" y1="173.6" x2="105" y2="173.6"/>
+<g id="XMLID_53_">
+	<g id="XMLID_164_">
+		<line id="XMLID_167_" class="st3" x1="161.5" y1="159.1" x2="161.5" y2="174.1"/>
+		<g id="XMLID_165_">
+			<polygon id="XMLID_166_" points="157.8,161.9 161.5,160.3 165.2,161.9 161.5,153.1 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_54_">
+	<g id="XMLID_271_">
+		<line id="XMLID_274_" class="st3" x1="303.5" y1="274.1" x2="303.5" y2="296.1"/>
+		<g id="XMLID_272_">
+			<polygon id="XMLID_273_" points="299.6,276.8 303.3,275.2 307,276.8 303.3,268 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_55_">
+	<g id="XMLID_256_">
+		<line id="XMLID_262_" class="st3" x1="230" y1="410.6" x2="105" y2="410.6"/>
+		<g id="XMLID_257_">
+			<polygon id="XMLID_260_" points="226.7,407.1 228.3,410.8 226.7,414.5 235.5,410.8 			"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_56_">
+	<g id="XMLID_245_">
+		<line id="XMLID_254_" class="st3" x1="404" y1="409.6" x2="389" y2="409.6"/>
+		<g id="XMLID_246_">
+			<polygon id="XMLID_253_" points="401.4,406.1 403,409.8 401.4,413.5 410.2,409.8 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_57_" class="st3" x1="389.5" y1="410.1" x2="389.5" y2="443.1"/>
+<line id="XMLID_58_" class="st3" x1="389" y1="442.6" x2="105" y2="442.6"/>
+<g id="XMLID_41_">
+	<g id="XMLID_241_">
+		<line id="XMLID_264_" class="st3" x1="180" y1="471.6" x2="269" y2="471.6"/>
+		<g id="XMLID_242_">
+			<polygon id="XMLID_243_" points="183,475.2 181.5,471.5 183,467.8 174.3,471.5 			"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_59_" class="st3" x1="161" y1="501.6" x2="105" y2="501.6"/>
+<g id="XMLID_60_">
+	<g id="XMLID_168_">
+		<line id="XMLID_171_" class="st3" x1="161.5" y1="490.1" x2="161.5" y2="501.1"/>
+		<g id="XMLID_169_">
+			<polygon id="XMLID_170_" points="157.8,492.9 161.5,491.3 165.2,492.9 161.5,484.1 			"/>
+		</g>
+	</g>
+</g>
+<rect id="XMLID_62_" x="149.8" y="95" class="st4" width="20.9" height="21"/>
+<text id="XMLID_61_" transform="matrix(1 0 0 1 149.8184 107.7798)" class="st5 st7">PC</text>
+<rect id="XMLID_64_" x="263.8" y="49.5" class="st4" width="22.4" height="19"/>
+<text id="XMLID_63_" transform="matrix(1 0 0 1 263.7793 62.2798)" class="st5 st7">+1</text>
+<rect id="XMLID_66_" x="298" y="300.5" class="st4" width="41.8" height="15"/>
+<text id="XMLID_65_" transform="matrix(1 0 0 1 298.049 309.0195)"><tspan x="0" y="0" class="st5 st6">MUX  </tspan><tspan x="29.4" y="0" class="st5 st8">1-0</tspan></text>
+<rect id="XMLID_68_" x="59.9" y="406" class="st4" width="37.8" height="11.7"/>
+<text id="XMLID_67_" transform="matrix(1 0 0 1 59.9187 414.4846)"><tspan x="0" y="0" class="st5 st6">M </tspan><tspan x="12.2" y="0" class="st9 st6">→</tspan><tspan x="24" y="0" class="st5 st6"> A</tspan></text>
+<rect id="XMLID_70_" x="371.7" y="503.6" class="st4" width="64" height="23.5"/>
+<text id="XMLID_69_" transform="matrix(1 0 0 1 371.6753 516.4288)" class="st5 st7">ALU</text>
+<rect id="XMLID_72_" x="239.2" y="395.5" class="st4" width="16.1" height="12.2"/>
+<text id="XMLID_71_" transform="matrix(1 0 0 1 239.1753 405.4861)" class="st5 st10">A:</text>
+<rect id="XMLID_74_" x="414.7" y="396.1" class="st4" width="14.3" height="15"/>
+<text id="XMLID_73_" transform="matrix(1 0 0 1 414.6753 406.0888)" class="st5 st10">B:</text>
+<rect id="XMLID_76_" x="155.2" y="270" class="st4" width="15" height="24.5"/>
+<text id="XMLID_75_" transform="matrix(1 0 0 1 155.1753 282.7798)" class="st5 st7">D</text>
+<rect id="XMLID_78_" x="155.7" y="307" class="st4" width="15.5" height="21"/>
+<text id="XMLID_193_" transform="matrix(1 0 0 1 155.6753 319.7803)" class="st5 st7">F</text>
+<rect id="XMLID_194_" x="149.8" y="343.5" class="st4" width="25.4" height="17"/>
+<text id="XMLID_195_" transform="matrix(1 0 0 1 149.8184 356.2803)" class="st5 st7">CO</text>
+<rect id="XMLID_196_" x="381.2" y="323" class="st4" width="23.5" height="16"/>
+<text id="XMLID_197_" transform="matrix(1 0 0 1 381.1753 328.6797)" class="st5 st8">16</text>
+<rect id="XMLID_199_" x="288.1" y="354.5" class="st4" width="23.5" height="16"/>
+<text id="XMLID_198_" transform="matrix(1 0 0 1 288.1071 360.1797)" class="st5 st8">16</text>
+<rect id="XMLID_201_" x="463.4" y="354.5" class="st4" width="23.5" height="16"/>
+<text id="XMLID_200_" transform="matrix(1 0 0 1 463.3539 360.1797)" class="st5 st8">16</text>
+<rect id="XMLID_203_" x="601.4" y="426.7" class="st4" width="23.5" height="16"/>
+<text id="XMLID_202_" transform="matrix(1 0 0 1 601.4253 432.4248)" class="st5 st8">16</text>
+<rect id="XMLID_205_" x="463.4" y="426.7" class="st4" width="23.5" height="16"/>
+<text id="XMLID_204_" transform="matrix(1 0 0 1 463.3539 432.4248)" class="st5 st8">16</text>
+<rect id="XMLID_207_" x="287.1" y="425.7" class="st4" width="23.5" height="16"/>
+<text id="XMLID_206_" transform="matrix(1 0 0 1 287.1071 431.4248)" class="st5 st8">16</text>
+<rect id="XMLID_208_" x="460.9" y="176.8" class="st4" width="11.5" height="13.5"/>
+<text id="XMLID_209_" transform="matrix(1 0 0 1 460.9253 182.4297)" class="st5 st8">7</text>
+<rect id="XMLID_211_" x="424.2" y="116.2" class="st4" width="11.5" height="13.5"/>
+<text id="XMLID_210_" transform="matrix(1 0 0 1 424.1753 121.8907)" class="st5 st8">7</text>
+<rect id="XMLID_213_" x="224.4" y="50.7" class="st4" width="11.5" height="13.5"/>
+<text id="XMLID_212_" transform="matrix(1 0 0 1 224.4351 56.3388)" class="st5 st8">7</text>
+<rect id="XMLID_215_" x="224.4" y="115.5" class="st4" width="11.5" height="13.5"/>
+<text id="XMLID_214_" transform="matrix(1 0 0 1 224.4351 121.1407)" class="st5 st8">7</text>
+<rect id="XMLID_217_" x="224.4" y="195.8" class="st4" width="11.5" height="13.5"/>
+<text id="XMLID_216_" transform="matrix(1 0 0 1 224.4351 201.4297)" class="st5 st8">7</text>
+<rect id="XMLID_219_" x="224.4" y="235" class="st4" width="11.5" height="13.5"/>
+<text id="XMLID_218_" transform="matrix(1 0 0 1 224.4351 240.6797)" class="st5 st8">7</text>
+<line id="XMLID_226_" class="st3" x1="465.6" y1="183.6" x2="459.1" y2="190.4"/>
+<line id="XMLID_227_" class="st3" x1="433.9" y1="118.9" x2="427.4" y2="125.6"/>
+<line id="XMLID_228_" class="st3" x1="234.5" y1="199.1" x2="228" y2="205.9"/>
+<line id="XMLID_229_" class="st3" x1="234.5" y1="118.9" x2="228" y2="125.6"/>
+<line id="XMLID_230_" class="st3" x1="234.5" y1="239.9" x2="228" y2="246.6"/>
+<line id="XMLID_232_" class="st3" x1="395.2" y1="326.6" x2="388.7" y2="333.4"/>
+<line id="XMLID_233_" class="st3" x1="478" y1="356.4" x2="471.5" y2="363.2"/>
+<line id="XMLID_234_" class="st3" x1="302.5" y1="356.7" x2="296" y2="363.4"/>
+<line id="XMLID_235_" class="st3" x1="302.8" y1="427.7" x2="296.3" y2="434.4"/>
+<line id="XMLID_236_" class="st3" x1="477.4" y1="428.8" x2="470.9" y2="435.5"/>
+<line id="XMLID_237_" class="st3" x1="615.4" y1="428.8" x2="608.9" y2="435.5"/>
+<line id="XMLID_239_" class="st3" x1="234.5" y1="54" x2="228" y2="60.8"/>
+<rect id="XMLID_128_" x="552.2" y="136.3" class="st4" width="48.8" height="20.8"/>
+<text id="XMLID_129_" transform="matrix(1 0 0 1 552.2435 153.3598)" class="st5 st11">RAM</text>
+<rect id="XMLID_130_" x="563.7" y="64.2" class="st4" width="26" height="17.5"/>
+<text id="XMLID_131_" transform="matrix(1 0 0 1 563.6753 76.9389)" class="st5 st7">L/E</text>
+<line id="XMLID_132_" class="st3" x1="564" y1="60.6" x2="576" y2="60.6"/>
+<line id="XMLID_133_" class="st3" x1="262.8" y1="106.2" x2="362.8" y2="187.2"/>
+<line id="XMLID_134_" class="st3" x1="362.8" y1="187.2" x2="262.8" y2="268.2"/>
+<rect id="XMLID_95_" x="59.5" y="436.3" class="st4" width="34.7" height="10.8"/>
+<text id="XMLID_94_" transform="matrix(1 0 0 1 59.4626 444.8682)"><tspan x="0" y="0" class="st5 st6">M </tspan><tspan x="12.2" y="0" class="st9 st6">→ </tspan><tspan x="27" y="0" class="st5 st6">B</tspan></text>
+<rect id="XMLID_269_" x="60.2" y="375.4" class="st4" width="37.3" height="9.2"/>
+<text id="XMLID_268_" transform="matrix(1 0 0 1 60.1687 383.8828)"><tspan x="0" y="0" class="st5 st6">M </tspan><tspan x="12.2" y="0" class="st9 st6">→</tspan><tspan x="24" y="0" class="st5 st6"> IR</tspan></text>
+<rect id="XMLID_277_" x="60.3" y="495.9" class="st4" width="41.9" height="17.5"/>
+<text id="XMLID_276_" transform="matrix(1 0 0 1 60.2795 504.4181)"><tspan x="0" y="0" class="st5 st6">Z </tspan><tspan x="9.2" y="0" class="st9 st6">→ </tspan><tspan x="24" y="0" class="st5 st6">FZ</tspan></text>
+<rect id="XMLID_279_" x="59.1" y="526.5" class="st4" width="39.5" height="15"/>
+<text id="XMLID_278_" transform="matrix(1 0 0 1 59.0658 535.0195)"><tspan x="0" y="0" class="st5 st6">ALU  </tspan><tspan x="25.9" y="0" class="st5 st8">1-0</tspan></text>
+<rect id="XMLID_281_" x="59.7" y="345.2" class="st4" width="32.3" height="13.6"/>
+<text id="XMLID_280_" transform="matrix(1 0 0 1 59.6908 353.7294)"><tspan x="0" y="0" class="st5 st6">CO </tspan><tspan x="17.8" y="0" class="st5 st8">1-0</tspan></text>
+<rect id="XMLID_289_" x="32.4" y="169.1" class="st4" width="54.6" height="9.6"/>
+<text id="XMLID_288_" transform="matrix(1 0 0 1 32.3969 177.6676)"><tspan x="0" y="0" class="st5 st6">@ +1 </tspan><tspan x="27.2" y="0" class="st9 st6">→</tspan><tspan x="39.1" y="0" class="st5 st6">PC</tspan></text>
+<rect id="XMLID_297_" x="58.9" y="31.6" class="st4" width="17" height="13.6"/>
+<text id="XMLID_296_" transform="matrix(1 0 0 1 58.9188 40.0747)" class="st5 st6">L/E</text>
+<line id="XMLID_290_" class="st3" x1="60" y1="29.6" x2="67" y2="29.6"/>
+<rect id="XMLID_292_" x="59.8" y="466.2" class="st4" width="21.5" height="18"/>
+<text id="XMLID_291_" transform="matrix(1 0 0 1 59.75 474.75)" class="st5 st6">FZ</text>
+<rect id="XMLID_294_" x="548.9" y="279" class="st4" width="54.1" height="15.5"/>
+<text id="XMLID_293_" transform="matrix(1 0 0 1 548.9253 291.7798)" class="st5 st7">DADES</text>
+<rect id="XMLID_298_" x="524.9" y="304.8" class="st4" width="48" height="17.5"/>
+<text id="XMLID_295_" transform="matrix(1 0 0 1 524.9415 313.2695)" class="st5 st6">Sortida</text>
+<rect id="XMLID_300_" x="591.9" y="304.3" class="st4" width="48" height="17.5"/>
+<text id="XMLID_299_" transform="matrix(1 0 0 1 591.9253 312.7695)" class="st5 st6">Entrada</text>
+<line id="XMLID_138_" class="st3" x1="299" y1="329.6" x2="474" y2="329.6"/>
+<line id="XMLID_139_" class="st3" x1="474" y1="329.6" x2="546" y2="329.6"/>
+<rect id="XMLID_142_" x="499.5" y="178.6" class="st12" width="147" height="17"/>
+<rect id="XMLID_301_" x="499.5" y="201.6" class="st12" width="147" height="18"/>
+<rect id="XMLID_303_" x="500.9" y="204.8" class="st4" width="22.5" height="12"/>
+<text id="XMLID_302_" transform="matrix(1 0 0 1 500.9416 214.6964)" class="st5 st10">(@):</text>
+<rect id="XMLID_310_" x="526.9" y="183.2" class="st4" width="52.7" height="12"/>
+<text id="XMLID_304_" transform="matrix(1 0 0 1 526.9487 191.4811)" class="st13 st6">0</text>
+<rect id="XMLID_312_" x="527" y="205.9" class="st4" width="114" height="12"/>
+<text id="XMLID_311_" transform="matrix(1 0 0 1 526.9995 214.1548)" class="st13 st6">0</text>
+<rect id="XMLID_141_" x="507.9" y="181.4" class="st4" width="14.6" height="12"/>
+<text id="XMLID_140_" transform="matrix(1 0 0 1 507.9416 191.3474)" class="st5 st10">@: </text>
+<rect id="XMLID_420_" x="23.5" y="460.6" class="st3" width="30" height="21"/>
+<rect id="XMLID_314_" x="180.5" y="270.6" class="st3" width="82" height="17"/>
+<rect id="XMLID_315_" x="180.5" y="304.6" class="st3" width="82" height="17"/>
+<rect id="XMLID_317_" x="182.3" y="274.1" class="st4" width="19.4" height="12"/>
+<text id="XMLID_316_" transform="matrix(1 0 0 1 182.3117 282.658)" class="st5 st6">@D: </text>
+<rect id="XMLID_319_" x="182.3" y="308" class="st4" width="18.1" height="12"/>
+<text id="XMLID_318_" transform="matrix(1 0 0 1 182.3117 316.527)" class="st5 st6">@F:</text>
+<rect id="XMLID_321_" x="182.5" y="94.6" class="st3" width="77" height="18"/>
+<rect id="XMLID_323_" x="184.3" y="98.7" class="st4" width="18.9" height="12"/>
+<text id="XMLID_322_" transform="matrix(1 0 0 1 184.3409 107.214)" class="st5 st6">PC:</text>
+<rect id="XMLID_325_" x="32.5" y="30" class="st4" width="12.9" height="11"/>
+<text id="XMLID_324_" transform="matrix(1 0 0 1 35.5981 38.2798)" class="st13 st6">0</text>
+<rect id="XMLID_327_" x="30.8" y="345.2" class="st4" width="14.2" height="11"/>
+<text id="XMLID_326_" transform="matrix(1 0 0 1 31.2993 353.5006)" class="st13 st6">00</text>
+<rect id="XMLID_329_" x="31.5" y="375.5" class="st4" width="12.9" height="11"/>
+<text id="XMLID_328_" transform="matrix(1 0 0 1 34.5981 383.7632)" class="st13 st6">0</text>
+<rect id="XMLID_331_" x="31.5" y="406.3" class="st4" width="12.9" height="11"/>
+<text id="XMLID_330_" transform="matrix(1 0 0 1 34.5981 414.5963)" class="st13 st6">0</text>
+<rect id="XMLID_333_" x="31.5" y="437.3" class="st4" width="12.9" height="11"/>
+<text id="XMLID_332_" transform="matrix(1 0 0 1 34.5981 445.5493)" class="st13 st6">0</text>
+<rect id="XMLID_335_" x="31" y="466.4" class="st4" width="12.9" height="11"/>
+<text id="XMLID_334_" transform="matrix(1 0 0 1 34.1617 474.6499)" class="st13 st6">0</text>
+<rect id="XMLID_337_" x="31" y="497" class="st4" width="12.9" height="11"/>
+<text id="XMLID_336_" transform="matrix(1 0 0 1 34.1617 505.2729)" class="st13 st6">0</text>
+<rect id="XMLID_339_" x="29.6" y="526.6" class="st4" width="15.7" height="11"/>
+<text id="XMLID_338_" transform="matrix(1 0 0 1 30.8628 534.9124)" class="st13 st6">00</text>
+<rect id="XMLID_341_" x="351.8" y="300" class="st4" width="14.9" height="11"/>
+<text id="XMLID_340_" transform="matrix(1 0 0 1 352.6329 308.2798)" class="st13 st6">00</text>
+<rect id="XMLID_345_" x="205.7" y="308.8" class="st4" width="50.8" height="12"/>
+<text id="XMLID_344_" transform="matrix(1 0 0 1 205.6751 317.1272)" class="st13 st6">0</text>
+<rect id="XMLID_347_" x="203.7" y="98.7" class="st4" width="50.1" height="12"/>
+<text id="XMLID_346_" transform="matrix(1 0 0 1 203.6755 106.9738)" class="st13 st6">0</text>
+<rect id="XMLID_349_" x="255.3" y="397.2" class="st4" width="106.5" height="11.6"/>
+<text id="XMLID_348_" transform="matrix(1 0 0 1 255.2793 405.5027)" class="st13 st6">0</text>
+<rect id="XMLID_351_" x="432" y="397.5" class="st4" width="107.4" height="9"/>
+<text id="XMLID_350_" transform="matrix(1 0 0 1 431.9997 405.8177)" class="st13 st6">0</text>
+<rect id="XMLID_80_" x="23.5" y="24.6" class="st3" width="30" height="21"/>
+<rect id="XMLID_81_" x="23.5" y="339.6" class="st3" width="30" height="21"/>
+<g id="XMLID_82_">
+	<g id="XMLID_173_">
+		<line id="XMLID_176_" class="st3" x1="111" y1="358.6" x2="146" y2="358.6"/>
+		<g id="XMLID_174_">
+			<polygon id="XMLID_175_" points="113.8,362.3 112.2,358.6 113.8,354.9 105,358.6 			"/>
+		</g>
+	</g>
+</g>
+<rect id="XMLID_187_" x="23.5" y="369.6" class="st3" width="30" height="21"/>
+<rect id="XMLID_222_" x="23.5" y="400.6" class="st3" width="30" height="21"/>
+<rect id="XMLID_223_" x="23.5" y="431.6" class="st3" width="30" height="21"/>
+<rect id="XMLID_88_" x="23.5" y="490.6" class="st3" width="30" height="21"/>
+<rect id="XMLID_83_" x="23.5" y="520.6" class="st3" width="30" height="21"/>
+<g id="XMLID_84_">
+	<g id="XMLID_238_">
+		<line id="XMLID_267_" class="st3" x1="323" y1="523.6" x2="105" y2="523.6"/>
+		<g id="XMLID_263_">
+			<polygon id="XMLID_266_" points="320.1,519.4 321.6,523.1 320.1,526.8 328.8,523.1 			"/>
+		</g>
+	</g>
+</g>
+<rect id="XMLID_85_" x="344.5" y="293.6" class="st3" width="30" height="21"/>
+<g id="XMLID_86_">
+	<g id="XMLID_178_">
+		<line id="XMLID_181_" class="st3" x1="321.5" y1="274.1" x2="321.5" y2="296.1"/>
+		<g id="XMLID_179_">
+			<polygon id="XMLID_180_" points="318.1,276.8 321.8,275.2 325.5,276.8 321.8,268 			"/>
+		</g>
+	</g>
+</g>
+<path id="XMLID_93_" class="st4" d="M105.3,550"/>
+<path id="XMLID_79_" class="st4" d="M104.7,0"/>
+<rect id="XMLID_89_" x="205.7" y="274.1" class="st4" width="50.8" height="12"/>
+<text id="XMLID_87_" transform="matrix(1 0 0 1 205.6751 282.4178)" class="st13 st6">0</text>
+<rect id="XMLID_91_" x="272" y="287.5" class="st4" width="107.4" height="9"/>
+<text id="XMLID_90_" transform="matrix(1 0 0 1 271.9997 295.8177)" class="st13 st6">0</text>
+</svg>
+						</div>
+						<div id="tabla_controlador" align="center" >
+							<table>
+								<tr>
+									<td><button class="btn" id="clock_less">Clock -</button></td>
+									<td id="clock">0</td>
+									<td><button class="btn" id="clock_plus">Clock +</button></td>
+									<td><button class="btn" id="reset">Reset</button></td>
+									<td><button class="btn btn-red" id="kill">Kill</button></td>
+
+								</tr>
+							</table>
+                        </div>
+						<br>
+						<br>
+						<div class="container-consola">
+							<p class="row">Benvinguts a la consola del simulador de la màquina senzilla. Presteu-li atenció!</p>
+						</div>
+					</div>
+                </div>
+                <div class="col-md-4">
+
+					<h4 class="service-heading text-center">Memòria</h4>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-condensed">
+                            <thead>
+                            <tr>
+                                <th width="20%" class="text-center">Etiqueta</th>
+                                <th width="10%" class="text-center">Adreça</th>
+                                <th width="70%" class="text-center">Instrucció</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="bodycontainer scrollable">
+                            <table  id="mytable" class="table table-hover table-striped table-condensed table-scrollable">
+                            </table>
+                        </div>
+                    </div>
+					<div class="table-responsive table2">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+							<tr>
+								<th width="20%" class="text-center">Etiqueta</th>
+								<th width="10%" class="text-center">Adreça</th>
+								<th width="70%" class="text-center">Dades</th>
+							</tr>
+							</thead>
+						</table>
+						<div class="bodycontainer scrollable">
+							<table  id="mytable2" class="table table-hover table-striped table-condensed table-scrollable">
+							</table>
+						</div>
+					</div>
+                    <form id="area">
+                        <input type='file' id="fileInput" name="fileInput" />
+                    </form>
+					<br>
+					<!-- EDITAR MEMORIA -->
+					<button type="button" id="btnLaunch" class="btn">Editar memòria</button>
+					<div class="modal fade" id="myModal">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+									</button>
+									<h4 class="modal-title">Edició de la memòria RAM</h4>
+								</div>
+								<div class="modal-body">
+									<textarea type="text" rows="30" id="txtInput" value="test1"></textarea>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Tencar</button>
+									<button type="button" id="btnSave" class="btn btn-primary">Guardar</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+
+					<!-- /.modal -->
+                </div>
+            </div>
+			<div>
+				<div id="diagrama-temps" class="col-lg-12 text-center">
+					<!--<h4>Diagrama de temps </h4>-->
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <!--<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="39 -15 1048 252" style="enable-background:new 39 -15 1048 250;" xml:space="preserve">
+                        <style type="text/css">
+                            .st00{opacity:0.25;fill:none;stroke:#000000;stroke-miterlimit:10;enable-background:new    ;}
+                            .st1111{fill:none;stroke:#E41F13;stroke-width:2;stroke-miterlimit:10;}
+                            .st22{fill:none;stroke:#344496;stroke-width:2;stroke-miterlimit:10;}
+                            .st33{fill:none;stroke:#BA3D8F;stroke-width:2;stroke-miterlimit:10;}
+                            .st44{fill:none;stroke:#12A63A;stroke-width:2;stroke-miterlimit:10;}
+                            .st55{fill:none;}
+                            .st66{font-family:'MyriadPro-Regular';}
+                            .st77{font-size:10px; font-family: Monospace;}
+                            .st88{fill:#12A63A;stroke:#7393CC;stroke-width:2;stroke-miterlimit:10;}
+                            .st99{fill:#013640;stroke:#021114;stroke-width:2;stroke-miterlimit:10;}
+                            .st1010{font-size:10px; font-family: Monospace;}
+                        </style>
+                        <line id="MLID_1_" class="st00" x1="278.5" y1="-15" x2="278.5" y2="235"/>
+                        <line id="MLID_2_" class="st00" x1="439.5" y1="-15" x2="439.5" y2="235"/>
+                        <line id="MLID_3_" class="st00" x1="601.5" y1="-15" x2="601.5" y2="235"/>
+                        <line id="MLID_4_" class="st00" x1="763.5" y1="-15" x2="763.5" y2="235"/>
+                        <line id="MLID_5_" class="st00" x1="924.5" y1="-15" x2="924.5" y2="235"/>
+                        <line id="MLID_5_" class="st00" x1="116.5" y1="-15" x2="116.5" y2="235"/>
+                        <line id="MLID_6_" class="st1111" x1="116" y1="15" x2="198" y2="15"/>
+                        <line id="MLID_7_" class="st1111" x1="197" y1="15" x2="197" y2="52"/>
+                        <line id="MLID_8_" class="st1111" x1="196" y1="52" x2="279" y2="52"/>
+                        <line id="MLID_999_" class="st1111" x1="278.5" y1="51.5" x2="278" y2="14.5"/>
+                        <line id="MLID_9_" class="st22" x1="116" y1="88" x2="278" y2="88"/>
+                        <line id="MLID_10_" class="st33" x1="130" y1="124" x2="265" y2="124"/>
+                        <line id="MLID_11_" class="st22" x1="116" y1="70" x2="278" y2="70"/>
+                        <line id="MLID_12_" class="st33" x1="130" y1="106" x2="265" y2="106"/>
+                        <line id="MLID_13_" class="st33" x1="264.5" y1="106" x2="278.2" y2="115"/>
+                        <line id="MLID_14_" class="st33" x1="277.8" y1="115" x2="264.2" y2="124"/>
+                        <line id="MLID_15_" class="st22" x1="116" y1="70" x2="116" y2="88"/>
+                        <line id="MLID_16_" class="st22" x1="278" y1="70" x2="278" y2="88"/>
+                        <line id="MLID_17_" class="st33" x1="130" y1="124.1" x2="116.5" y2="114.9"/>
+                        <line id="MLID_18_" class="st33" x1="116.5" y1="114.9" x2="130.3" y2="106.1"/>
+                        <line id="MLID_19_" class="st33" x1="264.5" y1="106" x2="278" y2="106"/>
+                        <line id="MLID_20_" class="st33" x1="265" y1="124" x2="278.3" y2="124"/>
+                        <line id="MLID_21_" class="st33" x1="130" y1="106" x2="116.5" y2="106"/>
+                        <line id="MLID_22_" class="st33" x1="130" y1="124" x2="116.5" y2="124"/>
+                        <line id="MLID_23_" class="st44" x1="130" y1="160" x2="265" y2="160"/>
+                        <line id="MLID_24_" class="st44" x1="130" y1="142" x2="265" y2="142"/>
+                        <line id="MLID_25_" class="st44" x1="264.5" y1="142" x2="278.2" y2="151"/>
+                        <line id="MLID_26_" class="st44" x1="278.2" y1="151" x2="264.5" y2="160"/>
+                        <line id="MLID_27_" class="st44" x1="130" y1="160.1" x2="116.5" y2="150.9"/>
+                        <line id="MLID_28_" class="st44" x1="116.5" y1="150.9" x2="130.3" y2="142.1"/>
+                        <line id="MLID_30_" class="st44" x1="264.5" y1="142" x2="278" y2="142"/>
+                        <line id="MLID_31_" class="st44" x1="265" y1="160" x2="278.3" y2="160"/>
+                        <line id="MLID_32_" class="st44" x1="130" y1="142" x2="116.5" y2="142"/>
+                        <line id="MLID_33_" class="st44" x1="130" y1="160" x2="116.5" y2="160"/>
+                        <rect x="66" y="36.5" class="st55" width="23.3" height="16"/>
+                        <text transform="matrix(1 0 0 1 66 45.0199)" class="st66 st77">CLK</text>
+                        <rect x="66" y="74.7" class="st55" width="17.3" height="11.7"/>
+                        <text transform="matrix(1 0 0 1 66 83.1865)" class="st66 st77">L/E</text>
+                        <line id="MLID_34_" class="st88" x1="130" y1="196" x2="265" y2="196"/>
+                        <line id="MLID_35_" class="st88" x1="130" y1="178" x2="265" y2="178"/>
+                        <line id="MLID_36_" class="st88" x1="264.5" y1="178" x2="278.2" y2="187"/>
+                        <line id="MLID_37_" class="st88" x1="278.2" y1="187" x2="264.5" y2="196"/>
+                        <line id="MLID_38_" class="st88" x1="130" y1="196.1" x2="116.5" y2="186.9"/>
+                        <line id="MLID_39_" class="st88" x1="116.5" y1="186.9" x2="130.3" y2="178.1"/>
+                        <line id="MLID_40_" class="st88" x1="264.5" y1="178" x2="278" y2="178"/>
+                        <line id="MLID_110_" class="st88" x1="265" y1="196" x2="278.3" y2="196"/>
+                        <line id="MLID_111_" class="st88" x1="130" y1="178" x2="116.5" y2="178"/>
+                        <line id="MLID_112_" class="st88" x1="130" y1="196" x2="116.5" y2="196"/>
+                        <line id="MLID_113_" class="st99" x1="157" y1="235" x2="265" y2="235"/>
+						<line id="MLID_113b_" class="st99" x1="130" y1="235" x2="157" y2="235"/>
+                        <line id="MLID_114_" class="st99" x1="157" y1="217" x2="265" y2="217"/>
+						<line id="MLID_114b_" class="st99" x1="130" y1="217" x2="157" y2="217"/>
+                        <line id="MLID_115_" class="st99" x1="264.5" y1="217" x2="278.2" y2="226"/>
+                        <line id="MLID_41_" class="st99" x1="278.2" y1="226" x2="264.5" y2="235"/>
+                        <line id="MLID_42_" class="st99" x1="130" y1="235.1" x2="116.5" y2="225.9"/>
+                        <line id="MLID_43_" class="st99" x1="116.5" y1="225.9" x2="130.3" y2="217.1"/>
+                        <line id="MLID_44_" class="st99" x1="264.5" y1="217" x2="278" y2="217"/>
+                        <line id="MLID_45_" class="st99" x1="265" y1="235" x2="278.3" y2="235"/>
+                        <line id="MLID_46_" class="st99" x1="130" y1="217" x2="116.5" y2="217"/>
+                        <line id="MLID_47_" class="st99" x1="130" y1="235" x2="116.5" y2="235"/>
+                        <line id="MLID_48_" class="st99" x1="129.5" y1="217" x2="143.2" y2="226"/>
+                        <line id="MLID_49_" class="st99" x1="143.2" y1="226" x2="129.5" y2="235"/>
+                        <line id="MLID_50_" class="st99" x1="157" y1="235.1" x2="143.5" y2="225.9"/>
+                        <line id="MLID_51_" class="st99" x1="143.5" y1="225.9" x2="157.3" y2="217.1"/>
+                        <line id="MLID_52_" class="st99" x1="156.5" y1="217" x2="170.2" y2="226"/>
+                        <line id="MLID_53_" class="st99" x1="170.2" y1="226" x2="156.5" y2="235"/>
+                        <line id="MLID_54_" class="st99" x1="184" y1="235.1" x2="170.5" y2="225.9"/>
+                        <line id="MLID_55_" class="st99" x1="170.5" y1="225.9" x2="184.3" y2="217.1"/>
+                        <line id="MLID_56_" class="st99" x1="183.5" y1="217" x2="197.2" y2="226"/>
+                        <line id="MLID_57_" class="st99" x1="197.2" y1="226" x2="183.5" y2="235"/>
+                        <line id="MLID_58_" class="st99" x1="211" y1="235.1" x2="197.5" y2="225.9"/>
+                        <line id="MLID_59_" class="st99" x1="197.5" y1="225.9" x2="211.3" y2="217.1"/>
+                        <line id="MLID_60_" class="st99" x1="210.5" y1="217" x2="224.2" y2="226"/>
+                        <line id="MLID_61_" class="st99" x1="224.2" y1="226" x2="210.5" y2="235"/>
+                        <line id="MLID_62_" class="st99" x1="237" y1="235.1" x2="223.5" y2="225.9"/>
+                        <line id="MLID_63_" class="st99" x1="223.5" y1="225.9" x2="237.3" y2="217.1"/>
+                        <line id="MLID_64_" class="st99" x1="236.5" y1="217" x2="250.2" y2="226"/>
+                        <line id="MLID_65_" class="st99" x1="250.2" y1="226" x2="236.5" y2="235"/>
+                        <line id="MLID_66_" class="st99" x1="264" y1="235.1" x2="250.5" y2="225.9"/>
+                        <line id="MLID_67_" class="st99" x1="250.5" y1="225.9" x2="264.3" y2="217.1"/>
+                        <rect x="66" y="109.5" class="st55" width="13.7" height="14.7"/>
+                        <text transform="matrix(1 0 0 1 66 118.0206)" class="st66 st77">IR</text>
+                        <rect x="65.7" y="142.5" class="st55" width="16.3" height="17"/>
+                        <text transform="matrix(1 0 0 1 65.6667 155.2806)" class="st66 st1010">@</text>
+                        <rect x="67.8" y="181.3" class="st55" width="23.7" height="16.7"/>
+                        <text transform="matrix(1 0 0 1 67.8333 189.8525)" class="st66 st77">PC</text>
+                        <rect x="67.5" y="218.7" class="st55" width="29" height="14.3"/>
+                        <text transform="matrix(1 0 0 1 67.5002 227.227)" class="st66 st77">bus</text>
+                        <rect x="192" y="-11" class="st55" width="12.4" height="16.3"/>
+                        <text id="clock0"transform="matrix(1 0 0 1 192.0002 1.7796)" class="st66 st1010">-</text>
+                        <text id="IR0"transform="matrix(1 0 0 1 147.6665 118.8342)" class="st66 st77">0000000000000000</text>
+                        <text id="@0"transform="matrix(1 0 0 1 175 154.8342)" class="st66 st77">0000000</text>
+                        <text id="PC0"transform="matrix(1 0 0 1 175 191.5002)" class="st66 st77">0000000</text>
+                        <text id="bus0"transform="matrix(1 0 0 1 147.6665 230.5002)" class="st66 st77">0000000000000000</text>
+                        <line id="MLID_68_" class="st1111" x1="277" y1="15" x2="359" y2="15"/>
+                        <line id="MLID_69_" class="st1111" x1="358" y1="15" x2="358" y2="52"/>
+                        <line id="MLID_70_" class="st1111" x1="357" y1="52" x2="440" y2="52"/>
+                        <line id="MLID_71_" class="st22" x1="277" y1="88" x2="439" y2="88"/>
+                        <line id="MLID_72_" class="st33" x1="291" y1="124" x2="426" y2="124"/>
+                        <line id="MLID_73_" class="st22" x1="277" y1="70" x2="439" y2="70"/>
+                        <line id="MLID_74_" class="st33" x1="291" y1="106" x2="426" y2="106"/>
+                        <line id="MLID_75_" class="st33" x1="425.5" y1="106" x2="439.2" y2="115"/>
+                        <line id="MLID_76_" class="st33" x1="438.8" y1="115" x2="425.2" y2="124"/>
+                        <line id="MLID_77_" class="st33" x1="291" y1="124.1" x2="277.5" y2="114.9"/>
+                        <line id="MLID_78_" class="st33" x1="277.5" y1="114.9" x2="291.3" y2="106.1"/>
+                        <line id="MLID_79_" class="st33" x1="425.5" y1="106" x2="439" y2="106"/>
+                        <line id="MLID_80_" class="st33" x1="426" y1="124" x2="439.3" y2="124"/>
+                        <line id="MLID_81_" class="st33" x1="291.5" y1="106" x2="277.5" y2="106"/>
+                        <line id="MLID_82_" class="st33" x1="291.5" y1="124" x2="277.5" y2="124"/>
+                        <line id="MLID_83_" class="st44" x1="291" y1="160" x2="426" y2="160"/>
+                        <line id="MLID_84_" class="st44" x1="291" y1="142" x2="426" y2="142"/>
+                        <line id="MLID_85_" class="st44" x1="425.5" y1="142" x2="439.2" y2="151"/>
+                        <line id="MLID_86_" class="st44" x1="439.2" y1="151" x2="425.5" y2="160"/>
+                        <line id="MLID_87_" class="st44" x1="291" y1="160.1" x2="277.5" y2="150.9"/>
+                        <line id="MLID_88_" class="st44" x1="277.5" y1="150.9" x2="291.3" y2="142.1"/>
+                        <line id="MLID_89_" class="st44" x1="425.5" y1="142" x2="439" y2="142"/>
+                        <line id="MLID_90_" class="st44" x1="426" y1="160" x2="439.3" y2="160"/>
+                        <line id="MLID_91_" class="st44" x1="291.5" y1="142" x2="277.5" y2="142"/>
+                        <line id="MLID_92_" class="st44" x1="291.5" y1="160" x2="277.5" y2="160"/>
+                        <line id="MLID_93_" class="st88" x1="291" y1="196" x2="426" y2="196"/>
+                        <line id="MLID_94_" class="st88" x1="291" y1="178" x2="426" y2="178"/>
+                        <line id="MLID_95_" class="st88" x1="425.5" y1="178" x2="439.2" y2="187"/>
+                        <line id="MLID_96_" class="st88" x1="439.2" y1="187" x2="425.5" y2="196"/>
+                        <line id="MLID_97_" class="st88" x1="291" y1="196.1" x2="277.5" y2="186.9"/>
+                        <line id="MLID_98_" class="st88" x1="277.5" y1="186.9" x2="291.3" y2="178.1"/>
+                        <line id="MLID_99_" class="st88" x1="425.5" y1="178" x2="439" y2="178"/>
+                        <line id="MLID_100_" class="st88" x1="426" y1="196" x2="439.3" y2="196"/>
+                        <line id="MLID_101_" class="st88" x1="291.5" y1="178" x2="277.5" y2="178"/>
+                        <line id="MLID_102_" class="st88" x1="291.5" y1="196" x2="277.5" y2="196"/>
+                        <line id="MLID_103_" class="st99" x1="318" y1="235" x2="426" y2="235"/>
+						<line id="MLID_103b_" class="st99" x1="291" y1="235" x2="318" y2="235"/>
+                        <line id="MLID_104_" class="st99" x1="318" y1="217" x2="426" y2="217"/>
+						<line id="MLID_104b_" class="st99" x1="291" y1="217" x2="318" y2="217"/>
+                        <line id="MLID_105_" class="st99" x1="425.5" y1="217" x2="439.2" y2="226"/>
+                        <line id="MLID_106_" class="st99" x1="439.2" y1="226" x2="425.5" y2="235"/>
+                        <line id="MLID_107_" class="st99" x1="291" y1="235.1" x2="277.5" y2="225.9"/>
+                        <line id="MLID_108_" class="st99" x1="277.5" y1="225.9" x2="291.3" y2="217.1"/>
+                        <line id="MLID_109_" class="st99" x1="425.5" y1="217" x2="439" y2="217"/>
+                        <line id="MLID_116_" class="st99" x1="426" y1="235" x2="439.3" y2="235"/>
+                        <line id="MLID_117_" class="st99" x1="291.5" y1="217" x2="277.5" y2="217"/>
+                        <line id="MLID_118_" class="st99" x1="291.5" y1="235" x2="277.5" y2="235"/>
+                        <line id="MLID_119_" class="st99" x1="290.5" y1="217" x2="304.2" y2="226"/>
+                        <line id="MLID_120_" class="st99" x1="304.2" y1="226" x2="290.5" y2="235"/>
+                        <line id="MLID_121_" class="st99" x1="318" y1="235.1" x2="304.5" y2="225.9"/>
+                        <line id="MLID_122_" class="st99" x1="304.5" y1="225.9" x2="318.3" y2="217.1"/>
+                        <line id="MLID_123_" class="st99" x1="317.5" y1="217" x2="331.2" y2="226"/>
+                        <line id="MLID_124_" class="st99" x1="331.2" y1="226" x2="317.5" y2="235"/>
+                        <line id="MLID_125_" class="st99" x1="345" y1="235.1" x2="331.5" y2="225.9"/>
+                        <line id="MLID_126_" class="st99" x1="331.5" y1="225.9" x2="345.3" y2="217.1"/>
+                        <line id="MLID_127_" class="st99" x1="344.5" y1="217" x2="358.2" y2="226"/>
+                        <line id="MLID_128_" class="st99" x1="358.2" y1="226" x2="344.5" y2="235"/>
+                        <line id="MLID_129_" class="st99" x1="372" y1="235.1" x2="358.5" y2="225.9"/>
+                        <line id="MLID_130_" class="st99" x1="358.5" y1="225.9" x2="372.3" y2="217.1"/>
+                        <line id="MLID_131_" class="st99" x1="371.5" y1="217" x2="385.2" y2="226"/>
+                        <line id="MLID_132_" class="st99" x1="385.2" y1="226" x2="371.5" y2="235"/>
+                        <line id="MLID_133_" class="st99" x1="398" y1="235.1" x2="384.5" y2="225.9"/>
+                        <line id="MLID_134_" class="st99" x1="384.5" y1="225.9" x2="398.3" y2="217.1"/>
+                        <line id="MLID_135_" class="st99" x1="397.5" y1="217" x2="411.2" y2="226"/>
+                        <line id="MLID_136_" class="st99" x1="411.2" y1="226" x2="397.5" y2="235"/>
+                        <line id="MLID_137_" class="st99" x1="425" y1="235.1" x2="411.5" y2="225.9"/>
+                        <line id="MLID_138_" class="st99" x1="411.5" y1="225.9" x2="425.3" y2="217.1"/>
+                        <rect x="353" y="-11" class="st55" width="12.4" height="16.3"/>
+                        <text id="clock1" transform="matrix(1 0 0 1 353.0002 1.7796)" class="st66 st1010">-</text>
+                        <text id="IR1"transform="matrix(1 0 0 1 308.6665 118.8342)" class="st66 st77">0000000000000000</text>
+                        <text id="@1"transform="matrix(1 0 0 1 336 154.8342)" class="st66 st77">0000000</text>
+                        <text id="PC1"transform="matrix(1 0 0 1 336 191.5002)" class="st66 st77">0000000</text>
+                        <text id="bus1"transform="matrix(1 0 0 1 308.6665 230.5002)" class="st66 st77">0000000000000000</text>
+                        <line id="MLID_139_" class="st1111" x1="439" y1="15" x2="521" y2="15"/>
+                        <line id="MLID_140_" class="st1111" x1="520" y1="15" x2="520" y2="52"/>
+                        <line id="MLID_141_" class="st1111" x1="519" y1="52" x2="602" y2="52"/>
+                        <line id="MLID_142_" class="st22" x1="439" y1="88" x2="601" y2="88"/>
+                        <line id="MLID_143_" class="st33" x1="453" y1="124" x2="588" y2="124"/>
+                        <line id="MLID_144_" class="st22" x1="439" y1="70" x2="601" y2="70"/>
+                        <line id="MLID_145_" class="st33" x1="453" y1="106" x2="588" y2="106"/>
+                        <line id="MLID_146_" class="st33" x1="587.5" y1="106" x2="601.2" y2="115"/>
+                        <line id="MLID_147_" class="st33" x1="600.8" y1="115" x2="587.2" y2="124"/>
+                        <line id="MLID_148_" class="st33" x1="453" y1="124.1" x2="439.5" y2="114.9"/>
+                        <line id="MLID_149_" class="st33" x1="439.5" y1="114.9" x2="453.3" y2="106.1"/>
+                        <line id="MLID_150_" class="st33" x1="587.5" y1="106" x2="601" y2="106"/>
+                        <line id="MLID_151_" class="st33" x1="588" y1="124" x2="601.3" y2="124"/>
+                        <line id="MLID_152_" class="st33" x1="453" y1="106" x2="439.5" y2="106"/>
+                        <line id="MLID_153_" class="st33" x1="453" y1="124" x2="439.5" y2="124"/>
+                        <line id="MLID_154_" class="st44" x1="453" y1="160" x2="588" y2="160"/>
+                        <line id="MLID_155_" class="st44" x1="453" y1="142" x2="588" y2="142"/>
+                        <line id="MLID_156_" class="st44" x1="587.5" y1="142" x2="601.2" y2="151"/>
+                        <line id="MLID_157_" class="st44" x1="601.2" y1="151" x2="587.5" y2="160"/>
+                        <line id="MLID_158_" class="st44" x1="453" y1="160.1" x2="439.5" y2="150.9"/>
+                        <line id="MLID_159_" class="st44" x1="439.5" y1="150.9" x2="453.3" y2="142.1"/>
+                        <line id="MLID_160_" class="st44" x1="587.5" y1="142" x2="601" y2="142"/>
+                        <line id="MLID_161_" class="st44" x1="588" y1="160" x2="601.3" y2="160"/>
+                        <line id="MLID_162_" class="st44" x1="453" y1="142" x2="439.5" y2="142"/>
+                        <line id="MLID_163_" class="st44" x1="453" y1="160" x2="439.5" y2="160"/>
+                        <line id="MLID_164_" class="st88" x1="453" y1="196" x2="588" y2="196"/>
+                        <line id="MLID_165_" class="st88" x1="453" y1="178" x2="588" y2="178"/>
+                        <line id="MLID_166_" class="st88" x1="587.5" y1="178" x2="601.2" y2="187"/>
+                        <line id="MLID_167_" class="st88" x1="601.2" y1="187" x2="587.5" y2="196"/>
+                        <line id="MLID_168_" class="st88" x1="453" y1="196.1" x2="439.5" y2="186.9"/>
+                        <line id="MLID_169_" class="st88" x1="439.5" y1="186.9" x2="453.3" y2="178.1"/>
+                        <line id="MLID_170_" class="st88" x1="587.5" y1="178" x2="601" y2="178"/>
+                        <line id="MLID_171_" class="st88" x1="588" y1="196" x2="601.3" y2="196"/>
+                        <line id="MLID_172_" class="st88" x1="453" y1="178" x2="439.5" y2="178"/>
+                        <line id="MLID_173_" class="st88" x1="453" y1="196" x2="439.5" y2="196"/>
+                        <line id="MLID_174_" class="st99" x1="480" y1="235" x2="588" y2="235"/>
+						<line id="MLID_174b_" class="st99" x1="453" y1="235" x2="480" y2="235"/>
+                        <line id="MLID_175_" class="st99" x1="480" y1="217" x2="588" y2="217"/>
+						<line id="MLID_175b_" class="st99" x1="453" y1="217" x2="480" y2="217"/>
+                        <line id="MLID_176_" class="st99" x1="587.5" y1="217" x2="601.2" y2="226"/>
+                        <line id="MLID_177_" class="st99" x1="601.2" y1="226" x2="587.5" y2="235"/>
+                        <line id="MLID_178_" class="st99" x1="453" y1="235.1" x2="439.5" y2="225.9"/>
+                        <line id="MLID_179_" class="st99" x1="439.5" y1="225.9" x2="453.3" y2="217.1"/>
+                        <line id="MLID_180_" class="st99" x1="587.5" y1="217" x2="601" y2="217"/>
+                        <line id="MLID_181_" class="st99" x1="588" y1="235" x2="601.3" y2="235"/>
+                        <line id="MLID_182_" class="st99" x1="453" y1="217" x2="439.5" y2="217"/>
+                        <line id="MLID_182b_" class="st99" x1="453" y1="235" x2="439.5" y2="235"/>
+                        <line id="MLID_183_" class="st99" x1="452.5" y1="217" x2="466.2" y2="226"/>
+                        <line id="MLID_184_" class="st99" x1="466.2" y1="226" x2="452.5" y2="235"/>
+                        <line id="MLID_185_" class="st99" x1="480" y1="235.1" x2="466.5" y2="225.9"/>
+                        <line id="MLID_186_" class="st99" x1="466.5" y1="225.9" x2="480.3" y2="217.1"/>
+                        <line id="MLID_187_" class="st99" x1="479.5" y1="217" x2="493.2" y2="226"/>
+                        <line id="MLID_188_" class="st99" x1="493.2" y1="226" x2="479.5" y2="235"/>
+                        <line id="MLID_189_" class="st99" x1="507" y1="235.1" x2="493.5" y2="225.9"/>
+                        <line id="MLID_190_" class="st99" x1="493.5" y1="225.9" x2="507.3" y2="217.1"/>
+                        <line id="MLID_191_" class="st99" x1="506.5" y1="217" x2="520.2" y2="226"/>
+                        <line id="MLID_192_" class="st99" x1="520.2" y1="226" x2="506.5" y2="235"/>
+                        <line id="MLID_193_" class="st99" x1="534" y1="235.1" x2="520.5" y2="225.9"/>
+                        <line id="MLID_194_" class="st99" x1="520.5" y1="225.9" x2="534.3" y2="217.1"/>
+                        <line id="MLID_195_" class="st99" x1="533.5" y1="217" x2="547.2" y2="226"/>
+                        <line id="MLID_196_" class="st99" x1="547.2" y1="226" x2="533.5" y2="235"/>
+                        <line id="MLID_197_" class="st99" x1="560" y1="235.1" x2="546.5" y2="225.9"/>
+                        <line id="MLID_198_" class="st99" x1="546.5" y1="225.9" x2="560.3" y2="217.1"/>
+                        <line id="MLID_200_" class="st99" x1="559.5" y1="217" x2="573.2" y2="226"/>
+                        <line id="MLID_201_" class="st99" x1="573.2" y1="226" x2="559.5" y2="235"/>
+                        <line id="MLID_202_" class="st99" x1="587" y1="235.1" x2="573.5" y2="225.9"/>
+                        <line id="MLID_203_" class="st99" x1="573.5" y1="225.9" x2="587.3" y2="217.1"/>
+                        <rect x="515" y="-11" class="st55" width="12.4" height="16.3"/>
+                        <text id="clock2" transform="matrix(1 0 0 1 515.0002 1.7796)" class="st66 st1010">-</text>
+                        <text id="IR2" transform="matrix(1 0 0 1 470.6665 118.8342)" class="st66 st77">0000000000000000</text>
+                        <text id="@2" transform="matrix(1 0 0 1 498 154.8342)" class="st66 st77">0000000</text>
+                        <text id="PC2" transform="matrix(1 0 0 1 498 191.5002)" class="st66 st77">0000000</text>
+                        <text id="bus2" transform="matrix(1 0 0 1 470.6665 230.5002)" class="st66 st77">0000000000000000</text>
+                        <line id="MLID_204_" class="st1111" x1="601" y1="15" x2="683" y2="15"/>
+                        <line id="MLID_205_" class="st1111" x1="682" y1="15" x2="682" y2="52"/>
+                        <line id="MLID_206_" class="st1111" x1="681" y1="52" x2="764" y2="52"/>
+                        <line id="MLID_207_" class="st22" x1="601" y1="88" x2="763" y2="88"/>
+                        <line id="MLID_208_" class="st33" x1="615" y1="124" x2="750" y2="124"/>
+                        <line id="MLID_209_" class="st22" x1="601" y1="70" x2="763" y2="70"/>
+                        <line id="MLID_210_" class="st33" x1="615" y1="106" x2="750" y2="106"/>
+                        <line id="MLID_211_" class="st33" x1="749.5" y1="106" x2="763.2" y2="115"/>
+                        <line id="MLID_212_" class="st33" x1="762.8" y1="115" x2="749.2" y2="124"/>
+                        <line id="MLID_213_" class="st33" x1="615" y1="124.1" x2="601.5" y2="114.9"/>
+                        <line id="MLID_214_" class="st33" x1="601.5" y1="114.9" x2="615.3" y2="106.1"/>
+                        <line id="MLID_215_" class="st33" x1="749.5" y1="106" x2="763" y2="106"/>
+                        <line id="MLID_216_" class="st33" x1="750" y1="124" x2="763.3" y2="124"/>
+                        <line id="MLID_217_" class="st33" x1="615" y1="106" x2="601.5" y2="106"/>
+                        <line id="MLID_218_" class="st33" x1="615" y1="124" x2="601.5" y2="124"/>
+                        <line id="MLID_219_" class="st44" x1="615" y1="160" x2="750" y2="160"/>
+                        <line id="MLID_220_" class="st44" x1="615" y1="142" x2="750" y2="142"/>
+                        <line id="MLID_221_" class="st44" x1="749.5" y1="142" x2="763.2" y2="151"/>
+                        <line id="MLID_222_" class="st44" x1="763.2" y1="151" x2="749.5" y2="160"/>
+                        <line id="MLID_223_" class="st44" x1="615" y1="160.1" x2="601.5" y2="150.9"/>
+                        <line id="MLID_224_" class="st44" x1="601.5" y1="150.9" x2="615.3" y2="142.1"/>
+                        <line id="MLID_225_" class="st44" x1="749.5" y1="142" x2="763" y2="142"/>
+                        <line id="MLID_226_" class="st44" x1="750" y1="160" x2="763.3" y2="160"/>
+                        <line id="MLID_227_" class="st44" x1="615" y1="142" x2="601.5" y2="142"/>
+                        <line id="MLID_228_" class="st44" x1="615" y1="160" x2="601.5" y2="160"/>
+                        <line id="MLID_229_" class="st88" x1="615" y1="196" x2="750" y2="196"/>
+                        <line id="MLID_230_" class="st88" x1="615" y1="178" x2="750" y2="178"/>
+                        <line id="MLID_231_" class="st88" x1="749.5" y1="178" x2="763.2" y2="187"/>
+                        <line id="MLID_232_" class="st88" x1="763.2" y1="187" x2="749.5" y2="196"/>
+                        <line id="MLID_233_" class="st88" x1="615" y1="196.1" x2="601.5" y2="186.9"/>
+                        <line id="MLID_234_" class="st88" x1="601.5" y1="186.9" x2="615.3" y2="178.1"/>
+                        <line id="MLID_235_" class="st88" x1="749.5" y1="178" x2="763" y2="178"/>
+                        <line id="MLID_236_" class="st88" x1="750" y1="196" x2="763.3" y2="196"/>
+                        <line id="MLID_237_" class="st88" x1="615" y1="178" x2="601.5" y2="178"/>
+                        <line id="MLID_238_" class="st88" x1="615" y1="196" x2="601.5" y2="196"/>
+                        <line id="MLID_239_" class="st99" x1="642" y1="235" x2="750" y2="235"/>
+						<line id="MLID_239b_" class="st99" x1="615" y1="235" x2="642" y2="235"/>
+                        <line id="MLID_240_" class="st99" x1="642" y1="217" x2="750" y2="217"/>
+						<line id="MLID_240b_" class="st99" x1="615" y1="217" x2="642" y2="217"/>
+                        <line id="MLID_241_" class="st99" x1="749.5" y1="217" x2="763.2" y2="226"/>
+                        <line id="MLID_242_" class="st99" x1="763.2" y1="226" x2="749.5" y2="235"/>
+                        <line id="MLID_243_" class="st99" x1="615" y1="235.1" x2="601.5" y2="225.9"/>
+                        <line id="MLID_244_" class="st99" x1="601.5" y1="225.9" x2="615.3" y2="217.1"/>
+                        <line id="MLID_245_" class="st99" x1="749.5" y1="217" x2="763" y2="217"/>
+                        <line id="MLID_246_" class="st99" x1="750" y1="235" x2="763.3" y2="235"/>
+                        <line id="MLID_247_" class="st99" x1="615" y1="217" x2="601.5" y2="217"/>
+                        <line id="MLID_248_" class="st99" x1="615" y1="235" x2="601.5" y2="235"/>
+                        <line id="MLID_249_" class="st99" x1="614.5" y1="217" x2="628.2" y2="226"/>
+                        <line id="MLID_250_" class="st99" x1="628.2" y1="226" x2="614.5" y2="235"/>
+                        <line id="MLID_251_" class="st99" x1="642" y1="235.1" x2="628.5" y2="225.9"/>
+                        <line id="MLID_252_" class="st99" x1="628.5" y1="225.9" x2="642.3" y2="217.1"/>
+                        <line id="MLID_253_" class="st99" x1="641.5" y1="217" x2="655.2" y2="226"/>
+                        <line id="MLID_254_" class="st99" x1="655.2" y1="226" x2="641.5" y2="235"/>
+                        <line id="MLID_255_" class="st99" x1="669" y1="235.1" x2="655.5" y2="225.9"/>
+                        <line id="MLID_256_" class="st99" x1="655.5" y1="225.9" x2="669.3" y2="217.1"/>
+                        <line id="MLID_257_" class="st99" x1="668.5" y1="217" x2="682.2" y2="226"/>
+                        <line id="MLID_258_" class="st99" x1="682.2" y1="226" x2="668.5" y2="235"/>
+                        <line id="MLID_259_" class="st99" x1="696" y1="235.1" x2="682.5" y2="225.9"/>
+                        <line id="MLID_260_" class="st99" x1="682.5" y1="225.9" x2="696.3" y2="217.1"/>
+                        <line id="MLID_261_" class="st99" x1="695.5" y1="217" x2="709.2" y2="226"/>
+                        <line id="MLID_262_" class="st99" x1="709.2" y1="226" x2="695.5" y2="235"/>
+                        <line id="MLID_263_" class="st99" x1="722" y1="235.1" x2="708.5" y2="225.9"/>
+                        <line id="MLID_264_" class="st99" x1="708.5" y1="225.9" x2="722.3" y2="217.1"/>
+                        <line id="MLID_265_" class="st99" x1="721.5" y1="217" x2="735.2" y2="226"/>
+                        <line id="MLID_266_" class="st99" x1="735.2" y1="226" x2="721.5" y2="235"/>
+                        <line id="MLID_267_" class="st99" x1="749" y1="235.1" x2="735.5" y2="225.9"/>
+                        <line id="MLID_268_" class="st99" x1="735.5" y1="225.9" x2="749.3" y2="217.1"/>
+                        <rect x="677" y="-11" class="st55" width="12.4" height="16.3"/>
+                        <text id="clock3" transform="matrix(1 0 0 1 677.0002 1.7796)" class="st66 st1010">-</text>
+                        <text id="IR3" transform="matrix(1 0 0 1 632.6665 118.8342)" class="st66 st77">0000000000000000</text>
+                        <text id="@3" transform="matrix(1 0 0 1 660 154.8342)" class="st66 st77">0000000</text>
+                        <text id="PC3" transform="matrix(1 0 0 1 660 191.5002)" class="st66 st77">0000000</text>
+                        <text id="bus3" transform="matrix(1 0 0 1 632.6665 230.5002)" class="st66 st77">0000000000000000</text>
+                        <line id="MLID_269_" class="st1111" x1="763" y1="15" x2="845" y2="15"/>
+                        <line id="MLID_270_" class="st1111" x1="844" y1="15" x2="844" y2="52"/>
+                        <line id="MLID_271_" class="st1111" x1="843" y1="52" x2="926" y2="52"/>
+                        <line id="MLID_272_" class="st22" x1="763" y1="88" x2="925" y2="88"/>
+                        <line id="MLID_273_" class="st33" x1="777" y1="124" x2="912" y2="124"/>
+                        <line id="MLID_274_" class="st22" x1="763" y1="70" x2="925" y2="70"/>
+                        <line id="MLID_275_" class="st33" x1="777" y1="106" x2="912" y2="106"/>
+                        <line id="MLID_276_" class="st33" x1="911.5" y1="106" x2="925.2" y2="115"/>
+                        <line id="MLID_277_" class="st33" x1="924.8" y1="115" x2="911.2" y2="124"/>
+                        <line id="MLID_278_" class="st33" x1="777" y1="124.1" x2="763.5" y2="114.9"/>
+                        <line id="MLID_279_" class="st33" x1="763.5" y1="114.9" x2="777.3" y2="106.1"/>
+                        <line id="MLID_280_" class="st33" x1="911.5" y1="106" x2="925" y2="106"/>
+                        <line id="MLID_281_" class="st33" x1="912" y1="124" x2="925.3" y2="124"/>
+                        <line id="MLID_282_" class="st33" x1="777" y1="106" x2="763.5" y2="106"/>
+                        <line id="MLID_283_" class="st33" x1="777" y1="124" x2="763.5" y2="124"/>
+                        <line id="MLID_284_" class="st44" x1="777" y1="160" x2="912" y2="160"/>
+                        <line id="MLID_285_" class="st44" x1="777" y1="142" x2="912" y2="142"/>
+                        <line id="MLID_286_" class="st44" x1="911.5" y1="142" x2="925.2" y2="151"/>
+                        <line id="MLID_287_" class="st44" x1="925.2" y1="151" x2="911.5" y2="160"/>
+                        <line id="MLID_288_" class="st44" x1="777" y1="160.1" x2="763.5" y2="150.9"/>
+                        <line id="MLID_289_" class="st44" x1="763.5" y1="150.9" x2="777.3" y2="142.1"/>
+                        <line id="MLID_290_" class="st44" x1="911.5" y1="142" x2="925" y2="142"/>
+                        <line id="MLID_291_" class="st44" x1="912" y1="160" x2="925.3" y2="160"/>
+                        <line id="MLID_292_" class="st44" x1="777" y1="142" x2="763.5" y2="142"/>
+                        <line id="MLID_293_" class="st44" x1="777" y1="160" x2="763.5" y2="160"/>
+                        <line id="MLID_294_" class="st88" x1="777" y1="196" x2="912" y2="196"/>
+                        <line id="MLID_295_" class="st88" x1="777" y1="178" x2="912" y2="178"/>
+                        <line id="MLID_296_" class="st88" x1="911.5" y1="178" x2="925.2" y2="187"/>
+                        <line id="MLID_297_" class="st88" x1="925.2" y1="187" x2="911.5" y2="196"/>
+                        <line id="MLID_298_" class="st88" x1="777" y1="196.1" x2="763.5" y2="186.9"/>
+                        <line id="MLID_299_" class="st88" x1="763.5" y1="186.9" x2="777.3" y2="178.1"/>
+                        <line id="MLID_300_" class="st88" x1="911.5" y1="178" x2="925" y2="178"/>
+                        <line id="MLID_301_" class="st88" x1="912" y1="196" x2="925.3" y2="196"/>
+                        <line id="MLID_302_" class="st88" x1="777" y1="178" x2="763.5" y2="178"/>
+                        <line id="MLID_303_" class="st88" x1="777" y1="196" x2="763.5" y2="196"/>
+                        <line id="MLID_304_" class="st99" x1="804" y1="235" x2="912" y2="235"/>
+						<line id="MLID_304b_" class="st99" x1="777" y1="235" x2="804" y2="235"/>
+                        <line id="MLID_305_" class="st99" x1="804" y1="217" x2="912" y2="217"/>
+						<line id="MLID_305b_" class="st99" x1="777" y1="217" x2="804" y2="217"/>
+                        <line id="MLID_306_" class="st99" x1="911.5" y1="217" x2="925.2" y2="226"/>
+                        <line id="MLID_307_" class="st99" x1="925.2" y1="226" x2="911.5" y2="235"/>
+                        <line id="MLID_308_" class="st99" x1="777" y1="235.1" x2="763.5" y2="225.9"/>
+                        <line id="MLID_309_" class="st99" x1="763.5" y1="225.9" x2="777.3" y2="217.1"/>
+                        <line id="MLID_310_" class="st99" x1="911.5" y1="217" x2="925" y2="217"/>
+                        <line id="MLID_311_" class="st99" x1="912" y1="235" x2="925.3" y2="235"/>
+                        <line id="MLID_312_" class="st99" x1="777" y1="217" x2="763.5" y2="217"/>
+                        <line id="MLID_313_" class="st99" x1="777" y1="235" x2="763.5" y2="235"/>
+                        <line id="MLID_314_" class="st99" x1="776.5" y1="217" x2="790.2" y2="226"/>
+                        <line id="MLID_315_" class="st99" x1="790.2" y1="226" x2="776.5" y2="235"/>
+                        <line id="MLID_316_" class="st99" x1="804" y1="235.1" x2="790.5" y2="225.9"/>
+                        <line id="MLID_317_" class="st99" x1="790.5" y1="225.9" x2="804.3" y2="217.1"/>
+                        <line id="MLID_318_" class="st99" x1="803.5" y1="217" x2="817.2" y2="226"/>
+                        <line id="MLID_319_" class="st99" x1="817.2" y1="226" x2="803.5" y2="235"/>
+                        <line id="MLID_320_" class="st99" x1="831" y1="235.1" x2="817.5" y2="225.9"/>
+                        <line id="MLID_321_" class="st99" x1="817.5" y1="225.9" x2="831.3" y2="217.1"/>
+                        <line id="MLID_322_" class="st99" x1="830.5" y1="217" x2="844.2" y2="226"/>
+                        <line id="MLID_323_" class="st99" x1="844.2" y1="226" x2="830.5" y2="235"/>
+                        <line id="MLID_324_" class="st99" x1="858" y1="235.1" x2="844.5" y2="225.9"/>
+                        <line id="MLID_325_" class="st99" x1="844.5" y1="225.9" x2="858.3" y2="217.1"/>
+                        <line id="MLID_326_" class="st99" x1="857.5" y1="217" x2="871.2" y2="226"/>
+                        <line id="MLID_327_" class="st99" x1="871.2" y1="226" x2="857.5" y2="235"/>
+                        <line id="MLID_328_" class="st99" x1="884" y1="235.1" x2="870.5" y2="225.9"/>
+                        <line id="MLID_329_" class="st99" x1="870.5" y1="225.9" x2="884.3" y2="217.1"/>
+                        <line id="MLID_330_" class="st99" x1="883.5" y1="217" x2="897.2" y2="226"/>
+                        <line id="MLID_331_" class="st99" x1="897.2" y1="226" x2="883.5" y2="235"/>
+                        <line id="MLID_332_" class="st99" x1="911" y1="235.1" x2="897.5" y2="225.9"/>
+                        <line id="MLID_333_" class="st99" x1="897.5" y1="225.9" x2="911.3" y2="217.1"/>
+                        <rect x="839" y="-11" class="st55" width="12.4" height="16.3"/>
+                        <text id="clock4" transform="matrix(1 0 0 1 839.0002 1.7796)" class="st66 st1010">-</text>
+                        <text id="IR4" transform="matrix(1 0 0 1 794.6665 118.8342)" class="st66 st77">0000000000000000</text>
+                        <text id="@4" transform="matrix(1 0 0 1 822 154.8342)" class="st66 st77">0000000</text>
+                        <text id="PC4" transform="matrix(1 0 0 1 822 191.5002)" class="st66 st77">0000000</text>
+                        <text id="bus4" transform="matrix(1 0 0 1 794.6665 230.5002)" class="st66 st77">0000000000000000</text>
+                        <line id="MLID_334_" class="st1111" x1="924" y1="15" x2="1006" y2="15"/>
+                        <line id="MLID_335_" class="st1111" x1="1005" y1="15" x2="1005" y2="52"/>
+                        <line id="MLID_336_" class="st1111" x1="1004" y1="52" x2="1087" y2="52"/>
+                        <line id="MLID_337_" class="st22" x1="925" y1="88" x2="1087" y2="88"/>
+                        <line id="MLID_338_" class="st33" x1="938" y1="124" x2="1073" y2="124"/>
+                        <line id="MLID_339_" class="st22" x1="925" y1="70" x2="1087" y2="70"/>
+                        <line id="MLID_340_" class="st33" x1="938" y1="106" x2="1073" y2="106"/>
+                        <line id="MLID_341_" class="st33" x1="1072.5" y1="106" x2="1086.2" y2="115"/>
+                        <line id="MLID_342_" class="st33" x1="1085.8" y1="115" x2="1072.2" y2="124"/>
+                        <line id="MLID_343_" class="st33" x1="938" y1="124.1" x2="924.5" y2="114.9"/>
+                        <line id="MLID_344_" class="st33" x1="924.5" y1="114.9" x2="938.3" y2="106.1"/>
+                        <line id="MLID_345_" class="st33" x1="1073.3" y1="106" x2="1087.3" y2="106"/>
+                        <line id="MLID_346_" class="st33" x1="1072.6" y1="124" x2="1086.6" y2="124"/>
+                        <line id="MLID_347_" class="st33" x1="938" y1="106" x2="924.5" y2="106"/>
+                        <line id="MLID_348_" class="st33" x1="938" y1="124" x2="924.5" y2="124"/>
+                        <line id="MLID_349_" class="st44" x1="938" y1="160" x2="1073" y2="160"/>
+                        <line id="MLID_350_" class="st44" x1="938" y1="142" x2="1073" y2="142"/>
+                        <line id="MLID_351_" class="st44" x1="1072.5" y1="142" x2="1086.2" y2="151"/>
+                        <line id="MLID_352_" class="st44" x1="1086.2" y1="151" x2="1072.5" y2="160"/>
+                        <line id="MLID_353_" class="st44" x1="938" y1="160.1" x2="924.5" y2="150.9"/>
+                        <line id="MLID_354_" class="st44" x1="924.5" y1="150.9" x2="938.3" y2="142.1"/>
+                        <line id="MLID_355_" class="st44" x1="1073.3" y1="142" x2="1087.3" y2="142"/>
+                        <line id="MLID_356_" class="st44" x1="1073.6" y1="160" x2="1087.6" y2="160"/>
+                        <line id="MLID_357_" class="st44" x1="938" y1="142" x2="924.5" y2="142"/>
+                        <line id="MLID_358_" class="st44" x1="938" y1="160" x2="924.5" y2="160"/>
+                        <line id="MLID_359_" class="st88" x1="938" y1="196" x2="1073" y2="196"/>
+                        <line id="MLID_360_" class="st88" x1="938" y1="178" x2="1073" y2="178"/>
+                        <line id="MLID_361_" class="st88" x1="1072.5" y1="178" x2="1086.2" y2="187"/>
+                        <line id="MLID_362_" class="st88" x1="1086.2" y1="187" x2="1072.5" y2="196"/>
+                        <line id="MLID_363_" class="st88" x1="938" y1="196.1" x2="924.5" y2="186.9"/>
+                        <line id="MLID_364_" class="st88" x1="924.5" y1="186.9" x2="938.3" y2="178.1"/>
+                        <line id="MLID_365_" class="st88" x1="1072.3" y1="178" x2="1086.3" y2="178"/>
+                        <line id="MLID_366_" class="st88" x1="1073" y1="196" x2="1086.3" y2="196"/>
+                        <line id="MLID_367_" class="st88" x1="938" y1="178" x2="924.5" y2="178"/>
+                        <line id="MLID_368_" class="st88" x1="938" y1="196" x2="924.5" y2="196"/>
+                        <line id="MLID_369_" class="st99" x1="965" y1="235" x2="1073" y2="235"/>
+						<line id="MLID_369b_" class="st99" x1="938" y1="235" x2="965" y2="235"/>
+                        <line id="MLID_370_" class="st99" x1="965" y1="217" x2="1073" y2="217"/>
+						<line id="MLID_370b_" class="st99" x1="938" y1="217" x2="965" y2="217"/>
+                        <line id="MLID_371_" class="st99" x1="1072.5" y1="217" x2="1086.2" y2="226"/>
+                        <line id="MLID_372_" class="st99" x1="1086.2" y1="226" x2="1072.5" y2="235"/>
+                        <line id="MLID_373_" class="st99" x1="938" y1="235.1" x2="924.5" y2="225.9"/>
+                        <line id="MLID_374_" class="st99" x1="924.5" y1="225.9" x2="938.3" y2="217.1"/>
+                        <line id="MLID_375_" class="st99" x1="1072.5" y1="217" x2="1086" y2="217"/>
+                        <line id="MLID_376_" class="st99" x1="1073" y1="235" x2="1086.3" y2="235"/>
+                        <line id="MLID_377_" class="st99" x1="938" y1="217" x2="924.5" y2="217"/>
+                        <line id="MLID_378_" class="st99" x1="938" y1="235" x2="924.5" y2="235"/>
+                        <line id="MLID_379_" class="st99" x1="937.5" y1="217" x2="951.2" y2="226"/>
+                        <line id="MLID_380_" class="st99" x1="951.2" y1="226" x2="937.5" y2="235"/>
+                        <line id="MLID_381_" class="st99" x1="965" y1="235.1" x2="951.5" y2="225.9"/>
+                        <line id="MLID_382_" class="st99" x1="951.5" y1="225.9" x2="965.3" y2="217.1"/>
+                        <line id="MLID_383_" class="st99" x1="964.5" y1="217" x2="978.2" y2="226"/>
+                        <line id="MLID_384_" class="st99" x1="978.2" y1="226" x2="964.5" y2="235"/>
+                        <line id="MLID_385_" class="st99" x1="992" y1="235.1" x2="978.5" y2="225.9"/>
+                        <line id="MLID_386_" class="st99" x1="978.5" y1="225.9" x2="992.3" y2="217.1"/>
+                        <line id="MLID_387_" class="st99" x1="991.5" y1="217" x2="1005.2" y2="226"/>
+                        <line id="MLID_388_" class="st99" x1="1005.2" y1="226" x2="991.5" y2="235"/>
+                        <line id="MLID_389_" class="st99" x1="1019" y1="235.1" x2="1005.5" y2="225.9"/>
+                        <line id="MLID_390_" class="st99" x1="1005.5" y1="225.9" x2="1019.3" y2="217.1"/>
+                        <line id="MLID_391_" class="st99" x1="1018.5" y1="217" x2="1032.2" y2="226"/>
+                        <line id="MLID_392_" class="st99" x1="1032.2" y1="226" x2="1018.5" y2="235"/>
+                        <line id="MLID_393_" class="st99" x1="1045" y1="235.1" x2="1031.5" y2="225.9"/>
+                        <line id="MLID_394_" class="st99" x1="1031.5" y1="225.9" x2="1045.3" y2="217.1"/>
+                        <line id="MLID_395_" class="st99" x1="1044.5" y1="217" x2="1058.2" y2="226"/>
+                        <line id="MLID_396_" class="st99" x1="1058.2" y1="226" x2="1044.5" y2="235"/>
+                        <line id="MLID_397_" class="st99" x1="1072" y1="235.1" x2="1058.5" y2="225.9"/>
+                        <line id="MLID_398_" class="st99" x1="1058.5" y1="225.9" x2="1072.3" y2="217.1"/>
+                        <rect x="1000" y="-11" class="st55" width="12.4" height="16.3"/>
+                        <text id="clock5"transform="matrix(1 0 0 1 1000.0002 1.7796)" class="st66 st1010">-</text>
+                        <text id="IR5" transform="matrix(1 0 0 1 955.6665 118.8342)" class="st66 st77">0000000000000000</text>
+                        <text id="@5"transform="matrix(1 0 0 1 983 154.8342)" class="st66 st77 ">0000000</text>
+                        <text id="PC5" transform="matrix(1 0 0 1 983 191.5002)" class="st66 st77">0000000</text>
+                        <text id="bus5" transform="matrix(1 0 0 1 955.6665 230.5002)" class="st66 st77">0000000000000000</text>
+                        <line id="MLID_399_" class="st1111" x1="439.5" y1="51.5" x2="439" y2="14.5"/>
+                        <line id="MLID_400_" class="st1111" x1="601.5" y1="51.5" x2="601" y2="14.5"/>
+                        <line id="MLID_401_" class="st1111" x1="763.5" y1="51.5" x2="763" y2="14.5"/>
+                        <line id="MLID_402_" class="st1111" x1="925.5" y1="51.5" x2="925" y2="14.5"/>
+                        <line id="MLID_403_" class="st22" x1="439.3" y1="70" x2="439.3" y2="88"/>
+                        <line id="MLID_404_" class="st22" x1="601.3" y1="70" x2="601.3" y2="88"/>
+                        <line id="MLID_405_" class="st22" x1="763.3" y1="70" x2="763.3" y2="88"/>
+                        <line id="MLID_406_" class="st22" x1="924.5" y1="70" x2="924.5" y2="88"/>
+                        </svg>-->
+				</div>
+        	</div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Manual d'ús</h2>
+                </div>
+            </div>
+            <div class="row">
+				<div class="col-lg-12">
+					<h4 class="section-heading">Compatibilitats amb el navegador</h4>
+					<p>
+						Els navegadors on s'han fet proves de visualització han sigut: Google Chrome, Mozilla Firefox, Opera, Internet Edge, Safari i Internet Explorer. L’únic navegador que dona problemes a l’hora de visualitzar les imatges SVG i les seves animacions és <u>Internet Explorer</u>.
+					</p>
+					<p>L'aplicació ha estat dissenyada i testejada sobretot en Firefox. Qualsevol comportament fora del normal en aquest navegador o en qualsevol altre que no sigui Internet Explorer notifiqueu-lo. Gràcies.
+					</p>
+					<br>
+					<h4 class="section-heading">Resolució del navegador</h4>
+					<p>Respecte a la resolució mínima per a una correcta visualització s’ha optat per la <strong>1024x768</strong>. Si la resolució es més baixa es pot trobar que la visualització de l’aplicació no sigui del 100% correcta.</p>
+					<p>Qualsevol error visual a partir d'aquesta resolució i per a qualsevol navegador suportat notifiqueu-lo. Gràcies.</p>
+					<br>
+					<h4 class="section-heading">Botons de control de l'aplicació</h4>
+					<p><strong>Clock -</strong>: Retrocedeix el flux de dades fins al flanc de rellotge anterior. Ho pot fer fins a l'estat inicial del programa.</p>
+					<p><strong>Clock +</strong>:  Simula el flanc de pujada de la màquina senzilla. Aquest botó fa que per pantalla es visualitzi el flux de dades.</p>
+					<p><strong>Reset</strong>: Aquest botó reinicia la màquina però no la memòria.</p>
+					<p><strong>Kill</strong>: Inicialitza tota la màquina senzilla, incloent-hi la memòria.</p>
+					<p><strong>Seleccionar fitxer</strong>: Ens permet carregar un fitxer amb extensió ".txt" amb instruccions i dades per carregar a la memòria.</p>
+					<p><strong>Editar memòria</strong>: Ens permet editar la memòria directament.</p>
+					<p><strong>Llegenda de colors</strong>: Botons que ens permeten canviar els colors dels senyals de control i del bus de dades.</p>
+					<p><strong>Assemblador</strong>: Checkbox que ens permet visualitzar en mode assemblador el contingut de la màquina.</p>
+					<br>
+					<div class="text-center">
+						<img src="images/Manual.jpg" alt="Manual de la Màquina Senzilla"  style="width:80%";>
+					</div>
+					<br>
+					<h4 class="section-heading">Càrrega del fitxer de configuració i edició de la memòria</h4>
+
+					<p>Per a l'entrada d'<strong>INSTRUCCIONS</strong>, la nova aplicació de la màquina senzilla processarà línia per línia les instruccions entrants que tindran una sintaxi especifica:</p>
+
+					<ul>
+						<li><u>Etiqueta o numero (Opcional)</u>: Serà un string seguit de dos punts ":" (ex: "inici:"). També podrà ser un enter seguit amb dos punts, en aquest cas ens guardarà la instrucció en la posició d'aquest enter. (ex: "15:").<br><br>
+							Sense el marcador s'aniran omplint automàticament els espais buits per a instruccions lliures.</li>
+						<br>
+						<li><u>Tipus operació</u>: Les normals de la màquina senzilla, (add | mov | cmp | beq).</li>
+						<br>
+						<li><u>Operador Font (no necessari en "beq")</u>: Pot ser un enter que apunta a una adreça de memòria o un string que apunta a una etiqueta. En el cas del "beq" es pot ignorar. Si hi és, ha d'estar separat sempre amb la coma "," per després definir l'operador destí. En base decimal</li>
+						<br>
+						<li><u>Operador Destí</u>: Igual que l'operador font pot ser un enter or un string, però aquest és sempre obligatori. En base decimal</li>
+						<br>
+						<li><u>El punt i coma ";"(Opcional)</u>: Serveix per finalitzar la instrucció però és també pot ser opcional.</li>
+
+					</ul>
+					<br>
+					<p>
+						Exemples:
+					</p>
+
+					<p><strong>inici: add 100, 111</strong>       #Escriu amb etiqueta, a la primera posició lliure per instruccions (add 100, 111)</p>
+					<p><strong>5: cmp 110, 110;</strong>          #Escriu a la posició 5 de memòria la instrucció (cmp 110, 110)</p>
+					<p><strong>add 100, un</strong>               #Escriu a la primera posició lliure I resol l'adreça de l'etiqueta</p>
+					<p><strong>beq inici;</strong></p>
+					<p><strong>final:</strong></p>				  #Interpretat serà igual que final: add 0 0.
+
+					<br>
+
+					<p>Per a l'entrada de <strong>DADES</strong> la sintaxi és més senzilla.</p>
+
+					<ul>
+						<li><u>Etiqueta o numero (Opcional)</u>: Serà un string seguit de dos punts ":" (ex: "zero:"). També podrà ser un enter seguit amb dos punts, en aquest cas ens guardarà el valor en la posició d'aquest enter. (ex: "100:").<br><br>Sense el marcador s'aniran omplint automàticament els espais buits per a les dades.</li>
+						<li><u>Valor</u>: El valor de la dada en base decimal.</li>
+					</ul>
+
+					<p>Exemples:</p>
+
+					<p><strong>245</strong></p>
+					<p><strong>zero: 0</strong></p>
+					<p><strong>110: 4</strong></p>
+
+					<br>
+
+					<p>Finalment hi ha dues maneres de carregar el programa, des d'un fitxer de text o editant directament amb el botó d'edició de memòria.</p>
+				</div>
+			</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Contacte</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+					<p>Bryan Pierre</p>
+					<p>u1906524@campus.udg.edu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+             <div class="row">
+                 <div class="col-lg-12 text-center">
+                 <h4>Llistat de bugs reportats:</h4>
+                 </div>
+             </div>
+			<div class="row">
+			<div class="col-lg-12">
+				<h5>v1.0.1 Bug Fix</h5>
+				<ul>
+					<li>[Entrades dades] No deixava afegir una etiqueta sense instrucció al darrere. Ara es pot fer i serà considerat una instrucció amb valor "add 0 0".</li>
+					<li>[Etiquetes] Ara l'aplicació resol correctament les instruccions amb etiquetes. Les converteix en l'adreça corresponent al carregar-la al IR.</li>
+
+				</ul>
+			</div>
+			</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<h5>v1.0.2 Bug Fix</h5>
+						<ul>
+							<li>[Visualització] El senyal de Z->FZ no es pintava correctament quan li tocava.</li>
+							<li>[Visualització] S'ha tret el remarcatge del requadre de FZ quan s'executava la fase de descodificació.</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-12">
+						<h5>v1.0.3 UPDATE</h5>
+						<ul>
+							<li>[Memòria Ram] S'ha separat la memòria RAM en dues parts per una còmode visualització i utilització, a part es marca les instruccions que s'estan executant
+								i quan es guarda un resultat a memòria.</li>
+							<li>[Personalització] S'ha afegit una llegenda amb els colors de representació dels senyals i el bus, també és editable per si es vol canviar el color.</li>
+
+						</ul>
+					</div>
+				</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<h5>v1.0.4 Bug fix</h5>
+					<ul>
+						<li>[Personalització] S'ha canviat les llibreries del seleccionador de colors, donaven problemes en carregar i no suportava el tàctil de tablets i mòbils.</li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<h5>v1.0.5 UPDATE</h5>
+					<ul>
+						<li>[Visualització] S'ha afegit un mode de vista "assemblador".</li>
+
+					</ul>
+				</div>
+			</div>
+
+
+         </div>
+     </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+					<a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank"><span class="copyright">GNU General Public License v3.0</span></a>
+                </div>
+
+				<div class="col-md-4">
+					<a href="https://github.com/simuladormaquinasenzilla/SimuladorMaquinaSenzilla" target="_blank"><i class="fa fa-github" style="font-size:18px"></i><span class="copyright"> Git Hub project</span></a>
+				</div>
+
+                <div class="col-md-4">
+					<span class="copyright">TFG Universitat de Girona, Bryan Pierre</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Javascript -->
+    <script data-main="app/main" src="libs/require.js"></script>
+
+</body>
+
+</html>
