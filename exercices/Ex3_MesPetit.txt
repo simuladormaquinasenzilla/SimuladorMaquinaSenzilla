@@ -1,0 +1,26 @@
+#Exercici 3
+#Suma nombres naturals
+
+inici: 	mov 100, 104;
+		add 101, 104;
+		cmp 102, 104;
+		beq 8;
+		cmp 103, 104;
+		beq 11;
+		cmp 100, 100;
+		beq 1;
+		mov 100, 105;
+		cmp 100, 100;
+		beq 13;
+		mov 101,105;
+		cmp 100, 100;
+fi:		beq 13;
+
+#Dades
+
+zero: 				0;
+un: 				1;
+a: 					2;
+b: 					1;
+i: 					0;
+resultat: 			0;

@@ -1,0 +1,20 @@
+# Example program 
+# Multiply c=a*b by adding b times a in a loop
+
+Begin:  mov Zero,c      # c:=0
+        mov Zero,i      # i:=0
+While:  cmp i,b         # While
+        beq End         #    i<b
+        add a,c         # c:=c+a
+        add One,i       # i:=i+1
+        cmp One,One     
+        beq While       
+End: 
+        
+        
+Zero:   0
+One:    1
+c:      0
+i:      0
+a:      3
+b:      5

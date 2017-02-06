@@ -1,0 +1,16 @@
+#Exercici 2 B
+#Suma nombres naturals invers
+
+inici: 	mov 101, 102;
+		add 100, 101;
+		beq 6;
+		add 101, 102;
+		cmp 100, 100;
+		beq 1;
+fi:		beq 6;
+
+#Dades
+
+menys: 				-1;
+ni: 				9;
+acumulador: 		0;

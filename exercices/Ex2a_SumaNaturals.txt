@@ -1,0 +1,20 @@
+#Exercici 2 A
+#Suma nombres naturals
+
+inici: 	mov 100, 103;
+		mov 100, 104;
+		add 101, 103;
+		add 103, 104;
+		cmp 102, 103;
+		beq 8;
+		cmp 100, 100;
+		beq 2;
+fi:		beq 8;
+
+#Dades
+
+zero: 				0;
+un: 				1;
+n: 					4;
+i: 					0;
+acumulador: 		0;

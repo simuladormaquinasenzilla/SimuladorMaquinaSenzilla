@@ -1,0 +1,20 @@
+#Exercici 1
+#Multiplicador de dues variables a i b
+inici: mov 100, 105;
+mov 100, 102;
+cmp 104, 102;
+beq 8;
+add 103, 105;
+add 101, 102;
+cmp 100, 100;
+beq 2;
+fi:cmp 100, 100;
+beq 9;
+
+#Dades
+zero: 0;
+un: 1;
+i: 0;
+a: 0;
+b: 0;
+c: 0;
