@@ -976,5 +976,9 @@ a {
     color: #001489;
 }
 
+a:hover, a:focus, a:active, a.active {
+    color: #6666b2;
+}
+
 
 
