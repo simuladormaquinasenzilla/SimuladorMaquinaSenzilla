@@ -556,9 +556,13 @@ var jsc = {
 			if (target._jscLinkedInstance.showOnClick) {
 				target._jscLinkedInstance.show();
 			}
-		} else if (target._jscControlName) {
+		}
+
+		else if (target._jscControlName) {
 			jsc.onControlPointerStart(e, target, target._jscControlName, 'touch');
-		} else {
+		}
+
+		else {
 			if (jsc.picker && jsc.picker.owner) {
 				jsc.picker.owner.hide();
 			}

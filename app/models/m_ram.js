@@ -107,12 +107,10 @@ define(['backbone', 'underscore'], function(Backbone){
          */
         carregarfitxer: function(text){
             
-            console.log("m_ram: cargando fichero...");
-
             this.set("memoria_text",text);
 
             // Espresio regular "parser" del ficher de text
-            regex =/\s*(?:(?:(?:([a-z][a-z_]*)|(\d+))\s*:)?\s*(?:(add|mov|cmp|beq)\s+(?:((?:[a-z][a-z_]*|\d*))\s*,\s*)?((?:[a-z][a-z_]*|\d+))|((?:(?:\d+|x|".+")\s*)+))?|(\.(?:inst|code|data)[^#]*?))\s*(#[^\n\r]+)?\s*([\n\r;]*)/i;
+            regex =/\s*(?:(?:(?:([a-z][a-z_]*)|(\d+))\s*:)?\s*(?:(add|mov|cmp|beq)\s+(?:((?:[a-z][a-z_]*|\d*))\s*,\s*)?((?:[a-z][a-z_]*|\d+))|((?:(?:|-|\d+|x|".+")\s*)+))?|(\.(?:inst|code|data)[^#]*?))\s*(#[^\n\r]+)?\s*([\n\r;]*)/i;
             //Dividim el contingut en lineas
             var lines = text.split('\n');
 
@@ -519,7 +517,22 @@ define(['backbone', 'underscore'], function(Backbone){
                 return ("000000000000000" + operador + fontAux + destiAux).substr(-16);
             }
             else {
-                return ("0000000000000000"+(parseInt(input)).toString(2)).substr(-16);
+                if (parseInt(input)<0){
+                    var newInput= input.split("-");
+
+                    var oper = ("0000000000000000"+(parseInt(newInput[1])).toString(2)).substr(-16);
+
+                    for (i=0;i<16;i++){
+                        var readc = oper.substr(i,1);
+                        if(readc=='0'){oper=oper.substr(0,i)+'1'+oper.substr(i+1);}
+                        else{oper=oper.substr(0,i)+'0'+oper.substr(i+1);}
+                    }
+                    return (("0000000000000000"+ (parseInt(oper,2)+1).toString(2)).substr(-16));
+                }
+                else{
+                    return ("0000000000000000"+(parseInt(input)).toString(2)).substr(-16);
+
+                }
             }
         },
 

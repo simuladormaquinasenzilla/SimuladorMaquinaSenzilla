@@ -34,7 +34,11 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
             "change input[name='fileInput']": 'render_memoria_fitxer',
             "click #btnLaunch" : "editar_memoria",
             "click #btnSave" : "guardar_edicio_memoria",
-            "click #assemblador" : "load_checkbox"
+            "click #assemblador" : "load_checkbox",
+            "focusout #senyal1-color":"load_colors",
+            "focusout #senyal0-color":"load_colors",
+            "focusout #bus-color":"load_colors"
+
         },
 
         /**
@@ -43,7 +47,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
         initialize: function() {
             _.bindAll(this, 'render', 'fetch', 'decodificacio', 'operandB', 'operandA','execucio','execucioCMP','clock_plus', 'clock_less');
             this.model = new v_ui();
-            this.load_colors();
             this.render();
         },
 
@@ -51,7 +54,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
          * Renderitza la maquina senzilla.
          */
         render: function() {
-            //this.pintar_diagrama_default();
         },
 
         /* ======================================================================= */
@@ -70,14 +72,16 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     else{
                         this.model.set("clock",this.model.get("clock")+1);
                         this.fetch();
+                        this.model.fetch();
+                        this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") - Fetch",1);
                         //this.pintar_diagrama(this.model.get("diagrama"));
                     }
                 }
                 else if ((this.model.get("state") == 2)){   // Descodificacio
                     this.model.set("clock",this.model.get("clock")+1);
-
                     this.decodificacio();
+                    this.model.decodificacio();
                     this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") - Decodificacio",1);
                     //this.pintar_diagrama(this.model.get("diagrama"));
 
@@ -85,6 +89,7 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 else if (this.model.get("state") == 3){     // Cerca operand B
                     this.model.set("clock",this.model.get("clock")+1);
                     this.operandB();
+                    this.model.operandB();
                     this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") - Cerca operand B",1);
                     //this.pintar_diagrama(this.model.get("diagrama"));
 
@@ -93,23 +98,25 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 else if (this.model.get("state") == 4){     // Cerca operand A
                     this.model.set("clock",this.model.get("clock")+1);
                     this.operandA();
+                    this.model.operandA();
                     this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") - Cerca operand A",1);
                     //this.pintar_diagrama(this.model.get("diagrama"));
 
 
                 }
                 else if (this.model.get("state") == 5){     //Execucio ADD
-                    var limit = this.execucio();
+                    var limit = this.model.execucio();
                     if (limit==-1) {
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") FI DEL PROGRAMA, la següent instrucció sobrepassa la capacitat de la memòria (16 bits).",2);
                     }
                     else {
+                        this.execucio();
+                        this.model.get("alu").render_control(this.model.get("senyal1"),this.model.get("senyal0"));
                         this.model.set("clock",this.model.get("clock")+1);
-
+                        this.marcar_resultat(this.model.get("instruction").model.get("desti"));
                         var svgItem;
                         svgItem = document.getElementById("clock");
                         svgItem.innerHTML = this.model.get("clock");
-
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") - Execució add",1);
                         //this.pintar_diagrama(this.model.get("diagrama"));
                     }
@@ -117,6 +124,7 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 else if (this.model.get("state") == 6){     //Execucio CMP
                     this.model.set("clock",this.model.get("clock")+1);
                     this.execucioCMP();
+                    this.model.execucio();
                     this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") - Execució cmp",1);
                     //this.pintar_diagrama(this.model.get("diagrama"));
 
@@ -126,13 +134,16 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     this.model.set("clock",this.model.get("clock")+1);
                     this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") - Consulta FZ",1);
                     this.consultaFZ();
+                    this.model.consultaFZ();
                     //this.pintar_diagrama(this.model.get("diagrama"));
 
 
                 }
                 else if (this.model.get("state") == 8){     //Execucio MOV
                     this.model.set("clock",this.model.get("clock")+1);
-                    this.execucio();
+                    var limit = this.model.execucio();
+                    if (limit == -1){return -1;}
+                    else {this.execucio();this.marcar_resultat(this.model.get("instruction").model.get("desti"));this.model.get("alu").render_control(this.model.get("senyal1"),this.model.get("senyal0"));}
                     this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio()+") - Execució mov",1);
                     //this.pintar_diagrama(this.model.get("diagrama"));
 
@@ -172,11 +183,14 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                         var valor = this.model.carregarInstruccioAnterior();
 
                         if (valor == 1) {
-                            this.fetch();
-                            this.decodificacio();
-                            this.operandB();
-                            this.operandA();
-                            this.execucio();
+                            this.model.fetch();
+                            this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                            this.model.decodificacio();
+                            this.model.operandB();
+                            this.model.operandA();
+                            var limit = this.model.execucio();
+                            if (limit == -1){return -1;}
+                            else {this.execucio();this.marcar_resultat(this.model.get("instruction").model.get("desti"));}
                             this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") Execució add", 1);
                             var diagr = this.model.get("diagrama");
                             for (var i=0;i<6;i++){
@@ -187,10 +201,15 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
 
                         }
                         else if (valor == 2) {
-                            this.fetch();
-                            this.decodificacio();
-                            this.operandB();
-                            this.execucio();
+                            this.model.fetch();
+                            this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                            this.model.decodificacio();
+                            this.model.operandB();
+
+                            var limit = this.model.execucio();
+                            if (limit == -1){return -1;}
+                            else {this.execucio();this.marcar_resultat(this.model.get("instruction").model.get("desti"));}
+
                             this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Execució mov", 1);
                             var diagr = this.model.get("diagrama");
                             for (var i=0;i<5;i++){
@@ -201,9 +220,11 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
 
                         }
                         else if (valor == 3) {
-                            this.fetch();
-                            this.decodificacio();
+                            this.model.fetch();
+                            this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                            this.model.decodificacio();
                             this.consultaFZ();
+                            this.model.consultaFZ();
                             this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address"))+" - ("+this.model.get_instruccio() + ") - Consulta FZ", 1);
                             var diagr = this.model.get("diagrama");
                             for (var i=0;i<4;i++){
@@ -214,11 +235,13 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
 
                         }
                         else if (valor == 4) {
-                            this.fetch();
-                            this.decodificacio();
-                            this.operandB();
-                            this.operandA();
+                            this.model.fetch();
+                            this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                            this.model.decodificacio();
+                            this.model.operandB();
+                            this.model.operandA();
                             this.execucioCMP();
+                            this.model.execucio();
                             this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Execució cmp", 1);
                             var diagr = this.model.get("diagrama");
                             for (var i=0;i<6;i++){
@@ -232,6 +255,8 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     else if ((this.model.get("state") == 3)) {   // CercaB <- Decode
                         this.model.carregarInstruccioAnterior();
                         this.fetch();
+                        this.model.fetch();
+                        this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Fetch", 1);
                         var diagr = this.model.get("diagrama");
                         for (var i=0;i<2;i++){
@@ -243,8 +268,10 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     }
                     else if (this.model.get("state") == 4) {     // CercaB <- CercaA
                         this.model.carregarInstruccioAnterior();
-                        this.fetch();
+                        this.model.fetch();
+                        this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
                         this.decodificacio();
+                        this.model.decodificacio();
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Decodificacio", 1);
                         var diagr = this.model.get("diagrama");
                         for (var i=0;i<3;i++){
@@ -256,9 +283,11 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     }
                     else if (this.model.get("state") == 5) {     //  CercaA <- ADD
                         this.model.carregarInstruccioAnterior();
-                        this.fetch();
-                        this.decodificacio();
+                        this.model.fetch();
+                        this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                        this.model.decodificacio();
                         this.operandB();
+                        this.model.operandB();
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Cerca operand B", 1);
                         var diagr = this.model.get("diagrama");
                         for (var i=0;i<4;i++){
@@ -272,9 +301,11 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     }
                     else if (this.model.get("state") == 6) {     // CercaA <- CMP
                         this.model.carregarInstruccioAnterior();
-                        this.fetch();
-                        this.decodificacio();
+                        this.model.fetch();
+                        this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                        this.model.decodificacio();
                         this.operandB();
+                        this.model.operandB();
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Cerca operand B", 1);
                         var diagr = this.model.get("diagrama");
                         for (var i=0;i<4;i++){
@@ -289,6 +320,9 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     else if (this.model.get("state") == 7) {
                         this.model.carregarInstruccioAnterior();
                         this.fetch();
+                        this.model.fetch();
+                        this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                        this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Fetch", 1);
                         var diagr = this.model.get("diagrama");
                         for (var i=0;i<2;i++){
@@ -302,8 +336,10 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     }
                     else if (this.model.get("state") == 8) {     // MOV
                         this.model.carregarInstruccioAnterior();
-                        this.fetch();
+                        this.model.fetch();
+                        this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
                         this.decodificacio();
+                        this.model.decodificacio();
                         this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Decodificacio", 1);
                         var diagr = this.model.get("diagrama");
                         for (var i=0;i<3;i++){
@@ -318,10 +354,12 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                         var valor = this.model.carregarInstruccioAnterior();
 
                         if (valor == 1 || valor == 4) {
-                            this.fetch();
-                            this.decodificacio();
-                            this.operandB();
+                            this.model.fetch();
+                            this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                            this.model.decodificacio();
+                            this.model.operandB();
                             this.operandA();
+                            this.model.operandA();
                             this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Cerca operand A", 1);
                             var diagr = this.model.get("diagrama");
                             for (var i=0;i<5;i++){
@@ -332,9 +370,11 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
 
                         }
                         else if (valor == 2) {
-                            this.fetch();
-                            this.decodificacio();
+                            this.model.fetch();
+                            this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
+                            this.model.decodificacio();
                             this.operandB();
+                            this.model.operandB();
                             this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Cerca operand B", 1);
                             var diagr = this.model.get("diagrama");
                             for (var i=0;i<4;i++){
@@ -346,8 +386,10 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
 
                         }
                         else if (valor == 3) {
-                            this.fetch();
+                            this.model.fetch();
+                            this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
                             this.decodificacio();
+                            this.model.decodificacio();
                             this.afegir_log_consola("PC: "+(this.model.get("pc").model.get("address")-1)+" - ("+this.model.get_instruccio() + ") - Decodificacio", 1);
                             var diagr = this.model.get("diagrama");
                             for (var i=0;i<3;i++){
@@ -480,6 +522,7 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
             svgItem.innerHTML = this.model.get("clock");
 
             // Ram
+
             if (this.model.get("assemblador")==0) {
                 svgItem = document.getElementById("XMLID_304_");
                 svgItem.innerHTML = this.model.get("pc").model.get("address");
@@ -545,11 +588,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 svgItem.style.strokeWidth= 3;
                 svgItem.style.stroke=this.model.get("bus");
             }
-            
-            this.model.fetch();
-
-           this.marcar_taula_instuccio("mytable",this.model.get("pc").model.get("address")-1,"#C4E6F5");
-
         },
 
         /**
@@ -637,9 +675,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 svgItem.style.stroke=this.model.get("senyal0");
                 svgItem.style.fill=this.model.get("senyal0");
             }
-
-            this.model.decodificacio();
-
         },
 
         /**
@@ -705,8 +740,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 svgItem.style.stroke=this.model.get("senyal0");
                 svgItem.style.fill=this.model.get("senyal0");
             }
-
-            this.model.consultaFZ();
         },
 
         /**
@@ -831,9 +864,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 svgItem.style.stroke=this.model.get("senyal0");
                 svgItem.style.fill=this.model.get("senyal0");
             }
-
-            this.model.operandB();
-
         },
 
         /**
@@ -958,10 +988,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 svgItem.style.stroke=this.model.get("senyal0");
                 svgItem.style.fill=this.model.get("senyal0");
             }
-
-            this.model.operandA();
-
-
         },
 
         /**
@@ -970,15 +996,8 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
          * altrament res.
          */
         execucio: function () {
-
-            var limit = this.model.execucio();
-
-            if (limit == -1){return -1;}
-
-            else {
+            
                 this.default();
-
-                this.marcar_resultat(this.model.get("instruction").model.get("desti"));
 
                 var execucioLines = [
                     "XMLID_22_","XMLID_19_","XMLID_154_",                                                // MUX 3
@@ -1109,8 +1128,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                     svgItem.style.fill=this.model.get("senyal0");
                 }
 
-            }
-
         },
 
         /**
@@ -1145,7 +1162,7 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 "XMLID_52_", "XMLID_167_",                                                           // @ + 1 -> PC
                 "XMLID_48_", "XMLID_261_",                                                           // M -> IR
                 "XMLID_58_", "XMLID_57_","XMLID_254_",                                                // M -> B
-                "XMLID_50_", "XMLID_360_",                                                         // Lectura / escirutra
+                "XMLID_50_", "XMLID_360_"                                                         // Lectura / escirutra
 
 
             ];
@@ -1227,9 +1244,6 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
                 svgItem.style.stroke=this.model.get("senyal0");
                 svgItem.style.fill=this.model.get("senyal0");
             }
-
-            this.model.execucio();
-
         },
 
         /* ======================================================================= */
@@ -1589,6 +1603,22 @@ define(['jquery' ,'backbone' , 'underscore', 'm_ui'],function ($, Backbone, _, v
             this.model.set('senyal1',$('#senyal1-color').css('background-color'));
             this.model.set('senyal0',$('#senyal0-color').css('background-color'));
             this.model.set('bus',$('#bus-color').css('background-color'));
+            
+            if ((this.model.get("state")==1) && (this.model.get("clock")>0)){
+               if (this.model.get("a_state")==5){this.execucio();this.load_checkbox();this.model.get("alu").render_control(this.model.get("senyal1"),this.model.get("senyal0"));}
+                else if (this.model.get("a_state")==8){this.execucio();this.load_checkbox();this.model.get("alu").render_control(this.model.get("senyal1"),this.model.get("senyal0"));}
+               else if (this.model.get("a_state")==6){this.execucioCMP();this.load_checkbox();this.model.get("alu").render_control(this.model.get("senyal1"),this.model.get("senyal0"));}
+               else if (this.model.get("a_state")==7){this.consultaFZ();this.load_checkbox();}
+            }
+            else if (this.model.get("state")==2){this.fetch();this.load_checkbox();}
+            else if (this.model.get("state")==3){this.decodificacio();this.load_checkbox();this.model.get("instruction").render_control(this.model.get("senyal1"),this.model.get("senyal0"));}
+            else if (this.model.get("state")==4){this.operandB();this.load_checkbox();}
+            else if (this.model.get("state")==5){this.operandA();this.load_checkbox();}
+            else if (this.model.get("state")==6){this.operandA();this.load_checkbox();}
+            else if (this.model.get("state")==7){this.consultaFZ();this.load_checkbox();this.model.get("instruction").render_control(this.model.get("senyal1"),this.model.get("senyal0"));}
+            else if (this.model.get("state")==8){this.operandB();this.load_checkbox();}
+            else {}
+
         },
 
         /**

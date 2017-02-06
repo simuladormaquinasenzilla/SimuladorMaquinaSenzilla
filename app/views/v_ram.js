@@ -35,7 +35,6 @@ define(['jquery' ,'backbone' , 'underscore', '../models/m_ram'], function($, Bac
          * Renderitza per defecte inicialitzant la memòria.
          */
         render: function() {
-            console.log("render memoria");
 
             this.model.inicializarMemoria();
 

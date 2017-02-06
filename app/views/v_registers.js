@@ -73,6 +73,7 @@ define(['jquery' ,'backbone' , 'underscore', '../models/m_registers'], function(
 
             if (isNaN(parseInt(input))){
 
+
                 var operador="";
                 var oper = input.split(" ");
 
@@ -87,7 +88,21 @@ define(['jquery' ,'backbone' , 'underscore', '../models/m_registers'], function(
                 return ((("0000000000000000" + operador + fontAux + destiAux).substr(-16)));
             }
             else {
-                return (("0000000000000000"+ (parseInt(input).toString(2))).substr(-16));
+                if (parseInt(input)<0){
+                    var newInput = input.split("-");
+
+                    var oper = ("0000000000000000"+(parseInt(newInput[1])).toString(2)).substr(-16);
+
+                    for (i=0;i<16;i++){
+                        var readc = oper.substr(i,1);
+                        if(readc=='0'){oper=oper.substr(0,i)+'1'+oper.substr(i+1);}
+                        else{oper=oper.substr(0,i)+'0'+oper.substr(i+1);}
+                    }
+                    return (("0000000000000000"+ (parseInt(oper,2)+1).toString(2)).substr(-16));
+                }
+                else{
+                    return (("0000000000000000"+ (parseInt(input).toString(2))).substr(-16));
+                }
             }
         }
 

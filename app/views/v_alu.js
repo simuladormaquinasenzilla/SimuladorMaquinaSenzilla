@@ -46,7 +46,7 @@ define(['jquery' ,'backbone' , 'underscore', '../models/m_alu'], function($, Bac
          * Renderitza els controladors de l'ALU.
          */
         render_control: function (senyal1,senyal0) {
-
+            console.log("render_control");
             var control1 =  document.getElementById("XMLID_267_");
             var control1Flechas = document.getElementById("XMLID_266_");
 

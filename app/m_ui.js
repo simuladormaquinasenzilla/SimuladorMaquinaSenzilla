@@ -32,6 +32,7 @@ define(['backbone', 'underscore','views/v_ram', 'views/v_pc', 'views/v_instructi
             alu: new v_alu(),                   /**< Vista de la ALU. */
 
             state: 0,                           /**< Estat actual en el que es troba la maquina senzilla. */
+            a_state: 0,                         /**< Estat anteriror que es trobaba la maquina senzilla. */
             buffer: [],                         /**< Buffer per guardar els estats anteriors de la maquina senzilla. */
             clock: 0,                           /**< Clock actual en el que es troba la maquina senzilla. */
 
@@ -53,6 +54,8 @@ define(['backbone', 'underscore','views/v_ram', 'views/v_pc', 'views/v_instructi
          * Funcio que representa el proces de fetch de la maquina senzilla.
          */
         fetch: function() {
+
+            this.set("a_state",this.get("state"));
             
             var pc = this.get("pc");
             var ram = this.get("ram");
@@ -130,6 +133,8 @@ define(['backbone', 'underscore','views/v_ram', 'views/v_pc', 'views/v_instructi
          */
         decodificacio: function () {
 
+            this.set("a_state",this.get("state"));
+
             var instruction = this.get("instruction");
             var registres = this.get("registers");
             var mux = this.get("mux");
@@ -175,6 +180,8 @@ define(['backbone', 'underscore','views/v_ram', 'views/v_pc', 'views/v_instructi
          */
         consultaFZ: function () {
 
+            this.set("a_state",this.get("state"));
+
             var instruction = this.get("instruction");
             var alu = this.get("alu");
             var pc = this.get("pc");
@@ -217,6 +224,9 @@ define(['backbone', 'underscore','views/v_ram', 'views/v_pc', 'views/v_instructi
          * Funcio que representa el proces de cerca del openand font de la maquina senzilla.
          */
         operandB: function () {
+
+            this.set("a_state",this.get("state"));
+
             var pc = this.get("pc");
             var ram = this.get("ram");
             var instruction = this.get("instruction");
@@ -268,6 +278,9 @@ define(['backbone', 'underscore','views/v_ram', 'views/v_pc', 'views/v_instructi
          * Funcio que representa el proces de cerca del openand desti de la maquina senzilla.
          */
         operandA: function () {
+
+            this.set("a_state",this.get("state"));
+
             var ram = this.get("ram");
             var instruction = this.get("instruction");
             var mux = this.get("mux");
@@ -317,6 +330,9 @@ define(['backbone', 'underscore','views/v_ram', 'views/v_pc', 'views/v_instructi
          * que segons quina instruccio estem executant fara una cosa o una altre.
          */
         execucio: function () {
+
+            this.set("a_state",this.get("state"));
+
             var ram = this.get("ram");
             var instruction = this.get("instruction");
             var mux = this.get("mux");

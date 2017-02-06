@@ -36,8 +36,8 @@ require.config({
             exports : 'Backbone'
         },
 
-        colorpicker: {
-            deps : [ 'jquery', 'bootstrap']
+        jscolor: {
+            deps : [ 'v_ui']
         }
     },
 
@@ -53,7 +53,9 @@ require.config({
         cbpAnimatedHeader: 'utils/cbpAnimatedHeader',
         smoothPageScroll: 'utils/smoothPageScroll',
         
-        jscolor: '../libs/jscolor'
+        jscolor: '../libs/jscolor',
+
+        v_ui: 'v_ui'
 
     }
 });
