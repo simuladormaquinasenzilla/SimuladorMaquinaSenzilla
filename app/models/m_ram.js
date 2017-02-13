@@ -43,29 +43,28 @@ define(['backbone', 'underscore'], function(Backbone){
             flag: 0,                    /**< Controla el flag de L/E de la RAM. */
             address: 0,                 /**< Adreça actual a la que apunta la RAM. */
 
-            memoria_text:               
-                            "# Les instruccions bàsiques del programa son: add, mov, cmp i beq.\n"+
-                            "# La seva sintaxis serà de la següent manera:\n"+
-                            "\n"+
-                            "add 110, 111;\n"+
-                            "mov 111, 113;\n"+
-                            "cmp 111, 112;\n"+
-                            "beq 6;\n"+
-                            "\n"+
-                            "#Sent opcionals els ';'\n"+
-                            "\n"+
-                            "# Les dades podran ser.\n"+
-                            "110: 1\n"+
-                            "111: 0\n"+
-                            "112: 3\n"+
-                            "\n"+
-                            "#Si les volem a una addreça especifica, en cas contrari s'afegeixen\n"+
-                            "#automàticament a partir de l'adreça 100:\n"+
-                            "\n"+
-                            "4\n"+
-                            "\n"+
-
-                            "#Finalment els comentaris sempre començaran per '#'.\n"
+            memoria_text:       
+            
+            "# Example program\n"+
+            "# Multiply c=a*b by adding b times a in a loop\n"+
+            "\n"+
+            "Begin:  mov Zero,c      # c:=0\n"+
+            "mov Zero,i      # i:=0\n"+ 
+            "While:  cmp i,b         # While\n"+
+            "beq End         #    i<b\n"+
+            "add a,c         # c:=c+a\n"+
+            "add One,i       # i:=i+1\n"+
+            "cmp One,One\n"+
+            "beq While\n"+
+            "End:\n"+
+            "\n"+
+            "\n"+
+            "Zero:   0\n"+
+            "One:    1\n"+
+            "c:      0\n"+
+            "i:      0\n"+
+            "a:      3\n"+
+            "b:      5\n"
         },
 
         /**
